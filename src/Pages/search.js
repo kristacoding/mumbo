@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Wrapper from "../components/Wrapper/Wrapper";
-import Nav from "../components/Nav/Nav";
-import Footer from "../components/Footer/footer";
 import SearchBar from "../components/SearchBar/SearchBar";
 import API from "../Utils/API";
 
@@ -37,7 +35,6 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <Nav />
                 <Wrapper>
                     <SearchBar
                         value={this.state.search}
@@ -45,7 +42,6 @@ class Search extends Component {
                         handleFormSubmit={this.handleFormSubmit}
                     />
                 </Wrapper>
-                <Footer />
             </div>
         )
     }

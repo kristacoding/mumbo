@@ -20,7 +20,7 @@ function SearchBar(props) {
         </button>
 
         <button onClick={props.clearSearch} className="btn btn-primary">
-          Clear Search
+          Clear
         </button>
         
       </div>
