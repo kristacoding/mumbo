@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Form from "../components/Form/formformat"
+import FormFormat from "../components/Form/formformat"
 
 function form() {
     return (
         <div>
-            <Form />
+            <FormFormat />
         </div>
     );
 } 

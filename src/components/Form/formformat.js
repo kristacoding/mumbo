@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style.css";
 import Container from "../Container/container";
 
 

@@ -1,7 +1,7 @@
 import React from "react";
-import Container from "..container/container.js"
-import Header from  "..header/header.js"
-import TopStats from "../topStats.topStats.js"
+import Container from "../Container/container"
+import Header from  "../header/header"
+import TopStats from "../topStats/topStats"
 
 function seoDashboard() {
     return(
