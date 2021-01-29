@@ -5,6 +5,7 @@ import Form from "./Pages/Form";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/footer";
 import Wrapper from "./components/Wrapper/Wrapper";
+import Dashboard from "./Pages/dashboard";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Wrapper>
           <Route exact path="/mumbo" component={Search} />
           <Route exact path="/form" component={Form} />
+          <Route exact path="/seo-dashboard" component={Dashboard} />
           <Route exact path="/" component={Search} />
         </Wrapper>
         <Footer />

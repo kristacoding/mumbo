@@ -26,7 +26,14 @@ function Nav() {
           Add New URL
             </Link>
       </li>
-
+      <li className="nav-item">
+        <Link
+          to="/seo-dashboard"
+          className={window.location.pathname === "/seo-dashboard" ? "nav-link active" : "nav-link"}
+        >
+          SEO Dashboard
+            </Link>
+      </li>
     </div>
   );
 }
