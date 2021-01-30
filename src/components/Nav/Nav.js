@@ -6,7 +6,7 @@ import "./style.css";
 function Nav() {
   return (
     <div className="navbar navbar-expand-lg navbar-light bg-light">
-      <li className="nav-item">
+      <li className="navbar-brand">
         <Link
           to="/"
           className={
@@ -18,22 +18,30 @@ function Nav() {
           MUMBO
             </Link>
       </li>
-      <li className="nav-item">
-        <Link
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li className="nav-item">
+          <Link
           to="/form"
           className={window.location.pathname === "/form" ? "nav-link active" : "nav-link"}
-        >
+          >
           Add New URL
             </Link>
-      </li>
-      <li className="nav-item">
-        <Link
+          </li>
+          <li className="nav-item">
+          <Link
           to="/seo-dashboard"
           className={window.location.pathname === "/seo-dashboard" ? "nav-link active" : "nav-link"}
-        >
+          >
           SEO Dashboard
-            </Link>
-      </li>
+          </Link>
+          </li>
+        </ul>  
+      </div>
     </div>
   );
 }

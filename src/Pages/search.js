@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Wrapper from "../components/Wrapper/Wrapper";
+import Wrapper from "../components/wrapper/Wrapper";
 import SearchBar from "../components/SearchBar/SearchBar";
 import API from "../Utils/API";
+import Container from "../components/Container/container";
 
 class Search extends Component {
     state = {
@@ -35,13 +36,13 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <Wrapper>
+                <Container>
                     <SearchBar
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
                     />
-                </Wrapper>
+                </Container>
             </div>
         )
     }

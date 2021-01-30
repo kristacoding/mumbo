@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Dashboard from "../components/seoDashboard/seoDashboard"
-import Wrapper from "../components/Wrapper/Wrapper";
+import Wrapper from "../components/wrapper/Wrapper";
+import Container from "../components/Container/container"
 import SearchBar from "../components/SearchBar/SearchBar";
 import API from "../Utils/API";
+import Chartdigest from "../components/Chartdigest/Chartdigest";
+import OrganicKWdigest from "../components/OrganicKWdigest/OrganicKWdigest"
 
 class SEODashboard extends Component {
     state = {
@@ -36,14 +39,11 @@ class SEODashboard extends Component {
     render() {
         return (
             <div>
-                <Wrapper>
-                    <SearchBar
-                        value={this.state.search}
-                        handleInputChange={this.handleInputChange}
-                        handleFormSubmit={this.handleFormSubmit}
-                    />
+                <Container>
                 <Dashboard />
-                </Wrapper>
+                <OrganicKWdigest />
+                <Chartdigest/>
+                </Container>
             </div>
         )
     }
