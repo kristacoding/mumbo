@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Wrapper from "../components/wrapper/Wrapper";
 import SearchBar from "../components/SearchBar/SearchBar";
 import API from "../Utils/API";
 import Container from "../components/Container/container";

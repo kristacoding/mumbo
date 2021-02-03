@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Dashboard from "../components/seoDashboard/seoDashboard"
-import Wrapper from "../components/wrapper/Wrapper";
 import Container from "../components/Container/container"
 import SearchBar from "../components/SearchBar/SearchBar";
 import API from "../Utils/API";

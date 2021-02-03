@@ -4,7 +4,6 @@ import Search from "../src/Pages/search";
 import Form from "../src/Pages/form";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/footer";
-import Wrapper from "./components/wrapper/Wrapper";
 import Container from "./components/Container/container"
 import SEODashboard from "./Pages/dashboard";
 import Style from "./App.css"
