@@ -12,7 +12,14 @@ class Search extends Component {
     searchURL = (query) => {
         console.log(query)
         API.getPageSpeed(query)
-            .then(res => this.setState({ result: res.data }))
+            .then(res => {
+                console.log(res.data)
+                this.setState({ result: res.data })})
+            .catch(err => console.log(err));
+        API.getSemrush(query)
+            .then(res => {
+                console.log(res.data)
+                this.setState({ result: res.data })})
             .catch(err => console.log(err));
     };
     //this need to be updated. Calls the API but not needed for this page
