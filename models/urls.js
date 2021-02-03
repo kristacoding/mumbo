@@ -5,7 +5,7 @@ const websiteSchema = new Schema({
   URL: { type: String, required: true },
   userName: { type: String, required: true },
   date: { type: Date, default: Date.now }, 
-  pageSpeedScore: { type: Integer, required: true},
+  pageSpeedScore: { type: String, required: true},
   domainRank: { type: Integer, required: true},
   organicTraffic: {type: Integer, required: true},
   firstPageKeywords: {type: Integer, required: true},

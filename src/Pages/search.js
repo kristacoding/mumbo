@@ -12,10 +12,13 @@ class Search extends Component {
     searchURL = (query) => {
         console.log(query)
         API.getPageSpeed(query)
-            .then(res => this.setState({ result: res.data }))
+            .then(res => {
+                console.log(res)
+                this.setState({ result: res.data })})
             .catch(err => console.log(err));
     };
-    //this need to be updated. Calls the API but not needed for this page
+    
+
 
     clearSearch = event =>{
     event.preventDefault();
@@ -41,10 +44,12 @@ class Search extends Component {
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
                     />
+                    
                 </Container>
             </div>
         )
     }
+    
 }
 
 export default Search; 
