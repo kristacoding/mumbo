@@ -1,6 +1,7 @@
 import React from "react";
 
-function topStats() {
+
+function topStats(props) {
   
   return (
     <div className="row dash-row">
@@ -8,7 +9,7 @@ function topStats() {
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Page Speed Score</div>
+            <div className="text-info font-weight-bold text-uppercase">Page Speed Score: {props.pageSpeed}</div>
           </div>
         </div>
       </div>

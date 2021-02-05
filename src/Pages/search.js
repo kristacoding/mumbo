@@ -22,7 +22,8 @@ class Search extends Component {
                 this.setState({ result: res.data })})
             .catch(err => console.log(err));
     };
-    //this need to be updated. Calls the API but not needed for this page
+    
+
 
     clearSearch = event =>{
     event.preventDefault();
@@ -48,10 +49,12 @@ class Search extends Component {
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
                     />
+                    
                 </Container>
             </div>
         )
     }
+    
 }
 
 export default Search; 
