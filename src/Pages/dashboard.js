@@ -1,29 +1,37 @@
 import React, { Component } from "react";
-import Dashboard from "../components/seoDashboard/seoDashboard"
 import Container from "../components/Container/container"
-import SearchBar from "../components/SearchBar/SearchBar";
 import API from "../Utils/API";
 import Chartdigest from "../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../components/OrganicKWdigest/OrganicKWdigest"
+import Header from "../components/header/header"
+import SearchBar from "../components/SearchBar/SearchBar";
+import TopStats from "../components/topStats/topStats";
+
+
 
 class SEODashboard extends Component {
     state = {
         search: "",
-        PageSpeed: []
+        result: []
     };
 
     searchURL = (query) => {
         console.log(query)
         API.getPageSpeed(query)
-            .then(res => this.setState({ result: res.data }))
+            .then(res => {
+                console.log(res)
+                this.setState({ result: res.data })
+                console.log(this.state.result);
+            })
             .catch(err => console.log(err));
     };
-    //this need to be updated. Calls the API but not needed for this page
 
-    clearSearch = event =>{
-    event.preventDefault();
-    const clear = this.searchURL(); 
-    return clear
+
+
+    clearSearch = event => {
+        event.preventDefault();
+        const clear = this.searchURL();
+        return clear
     };
 
     handleInputChange = event => {
@@ -39,9 +47,20 @@ class SEODashboard extends Component {
         return (
             <div>
                 <Container>
-                <Dashboard />
-                <OrganicKWdigest />
-                <Chartdigest/>
+                    <Header />
+                    <SearchBar
+                        value={this.state.search}
+                        handleInputChange={this.handleInputChange}
+                        handleFormSubmit={this.handleFormSubmit}
+                    />
+                    <TopStats 
+                       pageSpeed={(this.state.result.loadingExperience===undefined)
+                    ? "no page speed"
+                    : this.state.result.loadingExperience.overall_category
+                    }
+                    />
+                    <OrganicKWdigest />
+                    <Chartdigest />
                 </Container>
             </div>
         )
