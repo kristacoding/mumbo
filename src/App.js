@@ -6,11 +6,9 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/footer";
 import Container from "./components/Container/container"
 import SEODashboard from "./Pages/dashboard";
-var auth = require('./routes/auth');
+import "./App.css"
 
 function App() {
-
-  app.use('/api/auth', auth);
   
   return (
     <Router>
