@@ -1,3 +1,4 @@
 module.exports = {
-    WebsiteInfo: require("./urls")
+    WebsiteInfo: require("./url"),
+    User: require("./user")
   };
