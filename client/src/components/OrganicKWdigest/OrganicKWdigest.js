@@ -10,7 +10,7 @@ function OrganicKWdigest() {
                    Organic KW Postion Spread
                 </div>
                 <div class="card-body">
-                    <canvas id="myChart3" width="400" height="400"></canvas>
+                    <canvas id="myChart" width="400" height="400"></canvas>
                 </div>
                 </div>
             </div>
