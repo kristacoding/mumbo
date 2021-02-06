@@ -3,14 +3,24 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
 var UserSchema = new Schema({
-  username: {
+    username: {
         type: String,
         unique: true,
         required: true
     },
-  password: {
+    email: {
+        type: String,
+        unique: true,
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    },
+    password: {
         type: String,
         required: true
+    },
+
+    userCreated: {
+        type: Date,
+        default: Date.now
     }
 });
 
