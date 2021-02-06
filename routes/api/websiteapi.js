@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 const router = require("express").Router();
 const urlController = require("../../controllers/urlControllers");
-const db = url("../models/url")
+const db = require("../../models")
 
 /* GET ALL URLS */
 router.get('/', function(req, res, next) {
