@@ -12,7 +12,9 @@ import TopStats from "../components/topStats/topStats";
 class SEODashboard extends Component {
     state = {
         search: "",
-        result: []
+        result: [],
+        semresult: []
+
     };
 
     searchURL = (query) => {
@@ -24,6 +26,15 @@ class SEODashboard extends Component {
                 console.log(this.state.result);
             })
             .catch(err => console.log(err));
+            API.getSemrush(query)
+            .then(res => {
+                console.log(res.data)
+                const data = res.data
+                const arr = data.split(/;|\n/);
+                console.log(arr);
+                this.setState({ semresult: arr })})
+            .catch(err => console.log(err));
+            
     };
 
 
@@ -58,6 +69,22 @@ class SEODashboard extends Component {
                     ? "no page speed"
                     : this.state.result.loadingExperience.overall_category
                     }
+                    domainRank={(this.state.semresult.length < 1)
+                        ? "test"
+                        : this.state.semresult[12]
+                        }
+                    organicTraffic={(this.state.semresult.length < 1)
+                        ? "test"
+                        : this.state.semresult[17]
+                            }
+                    firstPageKW={(this.state.semresult.length < 1)
+                        ? "test"
+                        : this.state.semresult[14]
+                            }
+                    kwStriking={(this.state.semresult.length < 1)
+                        ? "test"
+                        : this.state.semresult[15]
+                            }
                     />
                     <OrganicKWdigest />
                     <Chartdigest />
