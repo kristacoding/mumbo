@@ -6,6 +6,7 @@ import OrganicKWdigest from "../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../components/header/header"
 import SearchBar from "../components/SearchBar/SearchBar";
 import TopStats from "../components/topStats/topStats";
+import axios from "axios";
 
 
 
@@ -34,6 +35,16 @@ class SEODashboard extends Component {
         return clear
     };
 
+    componentDidMount() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        this.searchURL();
+    };
+
+    logout = () => {
+        localStorage.removeItem('jwtToken');
+        window.location.reload();
+    }
+
     handleInputChange = event => {
         this.setState({ search: event.target.value })
     };
@@ -48,16 +59,19 @@ class SEODashboard extends Component {
             <div>
                 <Container>
                     <Header />
+                    {localStorage.getItem('jwtToken') &&
+                        <button class="btn btn-primary" onClick={this.logout}>Logout</button>
+                    }
                     <SearchBar
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
                     />
-                    <TopStats 
-                       pageSpeed={(this.state.result.loadingExperience===undefined)
-                    ? "no page speed"
-                    : this.state.result.loadingExperience.overall_category
-                    }
+                    <TopStats
+                        pageSpeed={(this.state.result.loadingExperience === undefined)
+                            ? "no page speed"
+                            : this.state.result.loadingExperience.overall_category
+                        }
                     />
                     <OrganicKWdigest />
                     <Chartdigest />

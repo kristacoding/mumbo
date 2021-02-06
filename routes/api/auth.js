@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
-var settings = require('../config/settings');
-require('../config/passport')(passport);
+var settings = require('../../config/settings');
+require('../../config/passport')(passport);
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
-var User = require("../models/user");
+var User = require("../../models/user");
 
 
 router.post('/register', function (req, res) {
@@ -26,7 +26,7 @@ router.post('/register', function (req, res) {
     }
 });
 
-router.post('/login', function (req, res) {
+router.post('/'|| '/login', function (req, res) {
     User.findOne({
         username: req.body.username
     }, function (err, user) {
