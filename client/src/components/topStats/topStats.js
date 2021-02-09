@@ -19,7 +19,7 @@ function topStats(props) {
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Overall Domain Rank</div>
+            <div className="text-info font-weight-bold text-uppercase">Overall Domain Rank:{props.domainRank}</div>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@ function topStats(props) {
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Projected Oranic Traffic</div>
+            <div className="text-info font-weight-bold text-uppercase">Projected Oranic Traffic:{props.organicTraffic}</div>
           </div>
           <div className="row mini-dash-row">
             <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="average-price"></span></div>
@@ -40,7 +40,7 @@ function topStats(props) {
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">First Page Keywords</div>
+            <div className="text-info font-weight-bold text-uppercase">First Page Keywords:{props.firstPageKW}</div>
           </div>
           <div className="row mini-dash-row">
             <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>
@@ -52,7 +52,7 @@ function topStats(props) {
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Keywords in Striking Distance </div>
+            <div className="text-info font-weight-bold text-uppercase">Keywords in Striking Distance: {props.kwStriking}</div>
           </div>
           <div className="row mini-dash-row">
             <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>
