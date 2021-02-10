@@ -26,7 +26,8 @@ router.post('/register', function (req, res) {
     }
 });
 
-router.post('/'|| '/login', function (req, res) {
+router.post('/login', function (req, res) {
+    console.log(req.body.username)
     User.findOne({
         username: req.body.username
     }, function (err, user) {
@@ -49,5 +50,15 @@ router.post('/'|| '/login', function (req, res) {
         }
     });
 });
+
+//route for logging out a user
+router.get("/logout", function (req, res){
+    req.logout();
+    res.redirect("/");
+}); 
+
+router.get("/api/profile", function(req, res) {
+
+})
 
 module.exports = router;
