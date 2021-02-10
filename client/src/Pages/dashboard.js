@@ -7,7 +7,7 @@ import Header from "../components/header/header"
 import SearchBar from "../components/SearchBar/SearchBar";
 import TopStats from "../components/topStats/topStats";
 import axios from "axios";
-
+import Chart from 'chart.js';
 
 
 class SEODashboard extends Component {
@@ -36,10 +36,43 @@ class SEODashboard extends Component {
                 this.setState({ semresult: arr })
             })
             .catch(err => console.log(err));
+            const ctx = document.getElementById('myChart').getContext('2d');
+            let myChart = new Chart(ctx, {
+              type: 'polarArea',
+              data: {
+                labels: ['Math', 'Writing', 'Critical Reading'],
+                datasets: [{
+                  label: '',
+                  data: [1, 2,],
+                  backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 0
+                }]
+              },
+              options: {
+                legend: {
+                  display: true
+                },
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      callback: function () { return "" },
+                      backdropColor: "rgba(0, 0, 0, 0)"
+                    }
+                  }]
+                }
+              }
+            });
 
     };
-
-
 
     clearSearch = event => {
         event.preventDefault();
