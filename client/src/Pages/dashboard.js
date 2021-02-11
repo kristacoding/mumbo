@@ -30,114 +30,6 @@ class SEODashboard extends Component {
                 const data = res.data
                 //sorting the response to json
                 const arr = data.split(/;|\n/);
-            const ctx = document.getElementById('myChart').getContext('2d');
-            //chart for organic kw results
-            let myChart = new Chart(ctx, {
-              type: 'polarArea',
-              data: {
-                labels: ['Math', 'Writing', 'Critical Reading'],
-                datasets: [{
-                  label: '',
-                  data: [arr[14], arr[15], arr[16]],
-                  backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                  ],
-                  borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                  ],
-                  borderWidth: 0
-                }]
-              },
-              options: {
-                legend: {
-                  display: true
-                },
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      callback: function () { return "" },
-                      backdropColor: "rgba(0, 0, 0, 0)"
-                    }
-                  }]
-                }
-              }
-            });
-            const ctx2 = document.getElementById('myChart2').getContext('2d');
-            //chart for organic kw results
-            let myChart2 = new Chart(ctx2, {
-              type: 'bar',
-              data: {
-                labels: ['Math', 'Writing', 'Critical Reading'],
-                datasets: [{
-                  label: '',
-                  data: [arr[14], arr[15], arr[16]],
-                  backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                  ],
-                  borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                  ],
-                  borderWidth: 0
-                }]
-              },
-              options: {
-                legend: {
-                  display: true
-                },
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      callback: function () { return "" },
-                      backdropColor: "rgba(0, 0, 0, 0)"
-                    }
-                  }]
-                }
-              }
-            });
-            const ctx3 = document.getElementById('myChart3').getContext('2d');
-            //chart for organic kw results
-            let myChart3 = new Chart(ctx3, {
-              type: 'bar',
-              data: {
-                labels: ['Math', 'Writing', 'Critical Reading'],
-                datasets: [{
-                  label: '',
-                  data: [arr[14], arr[15], arr[16]],
-                  backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                  ],
-                  borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                  ],
-                  borderWidth: 0
-                }]
-              },
-              options: {
-                legend: {
-                  display: true
-                },
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      callback: function () { return "" },
-                      backdropColor: "rgba(0, 0, 0, 0)"
-                    }
-                  }]
-                }
-              }
-            });
                 console.log(arr)
                 this.setState({ semresult: arr })
             })
@@ -189,19 +81,30 @@ class SEODashboard extends Component {
                         }
                         domainRank={(this.state.semresult.length < 1)
                             ? "test"
-                            : this.state.semresult[12]
+                            : this.state.semresult[14]
                         }
                         organicTraffic={(this.state.semresult.length < 1)
                             ? "test"
-                            : this.state.semresult[17]
+                            : this.state.semresult[21]
                         }
                         totalOrganicKW={(this.state.semresult.length < 1)
                             ? "test"
-                            : this.state.semresult[13]
+                            : this.state.semresult[15]
                         }
                     />
-                    <OrganicKWdigest />
-                    <Chartdigest />
+                    <OrganicKWdigest 
+                    Top3={this.state.semresult[16]}
+                    Top10={this.state.semresult[17]}
+                    Top20={this.state.semresult[18]}
+                    Top30={this.state.semresult[19]}
+                    Top40={this.state.semresult[20]}
+                    />
+                    <Chartdigest 
+                     Ortraffic={this.state.semresult[21]}
+                     Adtraffic={this.state.semresult[24]}
+                     Orkw={this.state.semresult[15]}
+                     Adkw={this.state.semresult[23]}
+                    />
                 </Container>
             </div>
         )

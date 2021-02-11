@@ -40,7 +40,7 @@ function topStats(props) {
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Total KW's:{props.totalOrganicKW}</div>
+            <div className="text-info font-weight-bold text-uppercase">Total KW's:<p>{props.totalOrganicKW}</p></div>
           </div>
           <div className="row mini-dash-row">
             <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>
