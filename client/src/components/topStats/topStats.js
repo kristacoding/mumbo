@@ -4,7 +4,7 @@ import "./style.css";
 
 function topStats(props) {
   
-  return (
+  return (                     
     <div className="row dash-row">
     <div className="col-md-3">
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
@@ -24,7 +24,7 @@ function topStats(props) {
         </div>
       </div>
     </div>
-    <div className="col-md-2">
+    <div className="col-md-3">
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
@@ -36,23 +36,11 @@ function topStats(props) {
         </div>
       </div>
     </div>
-    <div className="col-md-2">
+    <div className="col-md-3">
       <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
         <div className="card-body left-padding">
           <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">First Page Keywords:{props.firstPageKW}</div>
-          </div>
-          <div className="row mini-dash-row">
-            <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="col-md-2">
-      <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
-        <div className="card-body left-padding">
-          <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Keywords in Striking Distance: {props.kwStriking}</div>
+            <div className="text-info font-weight-bold text-uppercase">Total KW's:{props.totalOrganicKW}</div>
           </div>
           <div className="row mini-dash-row">
             <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>

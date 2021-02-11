@@ -19,31 +19,26 @@ class SEODashboard extends Component {
     };
 
     searchURL = (query) => {
-        console.log(query)
         API.getPageSpeed(query)
             .then(res => {
-                console.log(res)
                 this.setState({ result: res.data })
-                console.log(this.state.result);
             })
             .catch(err => console.log(err));
+        //api call for SEMrush    
         API.getSemrush(query)
             .then(res => {
-                console.log(res.data)
                 const data = res.data
+                //sorting the response to json
                 const arr = data.split(/;|\n/);
-                console.log(arr);
-                this.setState({ semresult: arr })
-            })
-            .catch(err => console.log(err));
             const ctx = document.getElementById('myChart').getContext('2d');
+            //chart for organic kw results
             let myChart = new Chart(ctx, {
               type: 'polarArea',
               data: {
                 labels: ['Math', 'Writing', 'Critical Reading'],
                 datasets: [{
                   label: '',
-                  data: [1, 2,],
+                  data: [arr[14], arr[15], arr[16]],
                   backgroundColor: [
                     'rgba(75, 192, 192, 0.2)',
                     'rgba(153, 102, 255, 0.2)',
@@ -71,7 +66,82 @@ class SEODashboard extends Component {
                 }
               }
             });
-
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
+            //chart for organic kw results
+            let myChart2 = new Chart(ctx2, {
+              type: 'bar',
+              data: {
+                labels: ['Math', 'Writing', 'Critical Reading'],
+                datasets: [{
+                  label: '',
+                  data: [arr[14], arr[15], arr[16]],
+                  backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 0
+                }]
+              },
+              options: {
+                legend: {
+                  display: true
+                },
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      callback: function () { return "" },
+                      backdropColor: "rgba(0, 0, 0, 0)"
+                    }
+                  }]
+                }
+              }
+            });
+            const ctx3 = document.getElementById('myChart3').getContext('2d');
+            //chart for organic kw results
+            let myChart3 = new Chart(ctx3, {
+              type: 'bar',
+              data: {
+                labels: ['Math', 'Writing', 'Critical Reading'],
+                datasets: [{
+                  label: '',
+                  data: [arr[14], arr[15], arr[16]],
+                  backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 0
+                }]
+              },
+              options: {
+                legend: {
+                  display: true
+                },
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      callback: function () { return "" },
+                      backdropColor: "rgba(0, 0, 0, 0)"
+                    }
+                  }]
+                }
+              }
+            });
+                console.log(arr)
+                this.setState({ semresult: arr })
+            })
+            .catch(err => console.log(err));
     };
 
     clearSearch = event => {
@@ -82,7 +152,7 @@ class SEODashboard extends Component {
 
     componentDidMount() {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
-        this.searchURL();
+        
     };
 
     logout = () => {
@@ -125,13 +195,9 @@ class SEODashboard extends Component {
                             ? "test"
                             : this.state.semresult[17]
                         }
-                        firstPageKW={(this.state.semresult.length < 1)
+                        totalOrganicKW={(this.state.semresult.length < 1)
                             ? "test"
-                            : this.state.semresult[14]
-                        }
-                        kwStriking={(this.state.semresult.length < 1)
-                            ? "test"
-                            : this.state.semresult[15]
+                            : this.state.semresult[13]
                         }
                     />
                     <OrganicKWdigest />
