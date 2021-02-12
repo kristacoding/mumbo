@@ -4,30 +4,35 @@ import API from "../Utils/API";
 import Chartdigest from "../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../components/header/header"
-import SearchBar from "../components/SearchBar/SearchBar";
+import SearchBar from "../components/SearchBar/Searchbar"
 import TopStats from "../components/topStats/topStats";
 import axios from "axios";
-
 
 
 class SEODashboard extends Component {
     state = {
         search: "",
-        result: []
+        result: [],
+        semresult: [],
     };
 
     searchURL = (query) => {
-        console.log(query)
         API.getPageSpeed(query)
             .then(res => {
-                console.log(res)
                 this.setState({ result: res.data })
-                console.log(this.state.result);
+            })
+            .catch(err => console.log(err));
+        //api call for SEMrush    
+        API.getSemrush(query)
+            .then(res => {
+                const data = res.data
+                //sorting the response to json
+                const arr = data.split(/;|\n/);
+                console.log(arr)
+                this.setState({ semresult: arr })
             })
             .catch(err => console.log(err));
     };
-
-
 
     clearSearch = event => {
         event.preventDefault();
@@ -36,14 +41,7 @@ class SEODashboard extends Component {
     };
 
     componentDidMount() {
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
-        this.searchURL();
     };
-
-    logout = () => {
-        localStorage.removeItem('jwtToken');
-        window.location.reload();
-    }
 
     handleInputChange = event => {
         this.setState({ search: event.target.value })
@@ -59,9 +57,6 @@ class SEODashboard extends Component {
             <div>
                 <Container>
                     <Header />
-                    {localStorage.getItem('jwtToken') &&
-                        <button class="btn btn-primary" onClick={this.logout}>Logout</button>
-                    }
                     <SearchBar
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
@@ -72,9 +67,32 @@ class SEODashboard extends Component {
                             ? "no page speed"
                             : this.state.result.loadingExperience.overall_category
                         }
+                        domainRank={(this.state.semresult.length < 1)
+                            ? "test"
+                            : this.state.semresult[14]
+                        }
+                        organicTraffic={(this.state.semresult.length < 1)
+                            ? "test"
+                            : this.state.semresult[21]
+                        }
+                        totalOrganicKW={(this.state.semresult.length < 1)
+                            ? "test"
+                            : this.state.semresult[15]
+                        }
                     />
-                    <OrganicKWdigest />
-                    <Chartdigest />
+                    <OrganicKWdigest
+                        Top3={this.state.semresult[16]}
+                        Top10={this.state.semresult[17]}
+                        Top20={this.state.semresult[18]}
+                        Top30={this.state.semresult[19]}
+                        Top40={this.state.semresult[20]}
+                    />
+                    <Chartdigest
+                        Ortraffic={this.state.semresult[21]}
+                        Adtraffic={this.state.semresult[24]}
+                        Orkw={this.state.semresult[15]}
+                        Adkw={this.state.semresult[23]}
+                    />
                 </Container>
             </div>
         )
