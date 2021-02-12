@@ -7,15 +7,13 @@ import Header from "../components/header/header"
 import SearchBar from "../components/SearchBar/Searchbar"
 import TopStats from "../components/topStats/topStats";
 import axios from "axios";
-import Chart from 'chart.js';
 
 
 class SEODashboard extends Component {
     state = {
         search: "",
         result: [],
-        semresult: []
-
+        semresult: [],
     };
 
     searchURL = (query) => {
@@ -82,18 +80,18 @@ class SEODashboard extends Component {
                             : this.state.semresult[15]
                         }
                     />
-                    <OrganicKWdigest 
-                    Top3={this.state.semresult[16]}
-                    Top10={this.state.semresult[17]}
-                    Top20={this.state.semresult[18]}
-                    Top30={this.state.semresult[19]}
-                    Top40={this.state.semresult[20]}
+                    <OrganicKWdigest
+                        Top3={this.state.semresult[16]}
+                        Top10={this.state.semresult[17]}
+                        Top20={this.state.semresult[18]}
+                        Top30={this.state.semresult[19]}
+                        Top40={this.state.semresult[20]}
                     />
-                    <Chartdigest 
-                     Ortraffic={this.state.semresult[21]}
-                     Adtraffic={this.state.semresult[24]}
-                     Orkw={this.state.semresult[15]}
-                     Adkw={this.state.semresult[23]}
+                    <Chartdigest
+                        Ortraffic={this.state.semresult[21]}
+                        Adtraffic={this.state.semresult[24]}
+                        Orkw={this.state.semresult[15]}
+                        Adkw={this.state.semresult[23]}
                     />
                 </Container>
             </div>
