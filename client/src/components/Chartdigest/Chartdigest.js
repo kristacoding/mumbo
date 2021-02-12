@@ -37,30 +37,26 @@ function Chartdigest(props) {
   };
   return (
     <div>
-      <div class="col-sm-6">
-        <div class="card shadow p-3 mb-5 bg-white rounded">
-          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-            Adwords Traffic & Adwords Keywords
+      <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+          Adwords Traffic & Adwords Keywords
                         </div>
-          <div class="card-body">
-            <Bar
-              data={chartData1}
-              options={{ maintainAspectRatio: true }}
-            />
-          </div>
+        <div class="card-body">
+          <Bar
+            data={chartData1}
+            options={{ maintainAspectRatio: true }}
+          />
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card border-left-secondary shadow p-3 mb-5 bg-white rounded">
-          <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-            Organic Traffic & Organic Keywords
+      <div class="card border-left-secondary shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+          Organic Traffic & Organic Keywords
                         </div>
-          <div class="card-body">
-            <Bar
-              data={chartData2}
-              options={{ maintainAspectRatio: true }}
-            />
-          </div>
+        <div class="card-body">
+          <Bar
+            data={chartData2}
+            options={{ maintainAspectRatio: true }}
+          />
         </div>
       </div>
     </div>
