@@ -4,17 +4,20 @@ const Schema = mongoose.Schema;
 
 const websiteSchema = new Schema({
   URL: { type: String, required: true },
-  userName: { type: String, required: true },
   date: { type: Date, default: Date.now }, 
   pageSpeedScore: { type: String, required: true},
   domainRank: { type: Number, required: true},
   organicTraffic: {type: Number, required: true},
-  firstPageKeywords: {type: Number, required: true},
-  keywordsStriking: { type: Number, required: true},
-  keywordPosition: {type: Number, required: true},
-  vsTraffic: {type: Number, required: true},
-  vsKeyword: {type: Number, required: true},
-  vsCost: {type: Number, required: true}
+  totalOrganicKW: {type: Number, required: true},
+  Top3: {type: Number, required: true},
+  Top10: { type: Number, required: true},
+  Top20: { type: Number, required: true},
+  Top30: { type: Number, required: true},
+  Top40: { type: Number, required: true},
+  Ortraffic: {type: Number, required: true},
+  Adtraffic: {type: Number, required: true},
+  Orkw: {type: Number, required: true},
+  Adkw: {type: Number, required: true}
 
 });
 

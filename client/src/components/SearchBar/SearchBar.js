@@ -24,6 +24,10 @@ function SearchBar(props) {
           Clear
         </button>
         
+        <button onClick={props.saveSearch} className="btn btn-primary">
+          Save
+        </button>
+        
       </div>
     </form>
   );

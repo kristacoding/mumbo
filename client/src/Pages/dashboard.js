@@ -4,9 +4,9 @@ import API from "../Utils/API";
 import Chartdigest from "../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../components/header/header"
-import SearchBar from "../components/SearchBar/Searchbar"
+import SearchBar from "../components/SearchBar/SearchBar"
 import TopStats from "../components/topStats/topStats";
-import axios from "axios";
+
 
 
 class SEODashboard extends Component {
@@ -14,6 +14,7 @@ class SEODashboard extends Component {
         search: "",
         result: [],
         semresult: [],
+
     };
 
     searchURL = (query) => {
@@ -40,6 +41,29 @@ class SEODashboard extends Component {
         return clear
     };
 
+    saveSearch = event => {
+        event.preventDefault();
+        API.saveUrl({
+            URL: this.state.search, 
+            pageSpeedScore: this.state.result.loadingExperience.overall_category,
+            domainRank: this.state.semresult[14],
+            organicTraffic: this.state.semresult[21], 
+            totalOrganicKW: this.state.semresult[15],
+            Top3: this.state.semresult[16],
+            Top10: this.state.semresult[17], 
+            Top20: this.state.semresult[18],
+            Top30: this.state.semresult[19], 
+            Top40: this.state.semresult[20], 
+            Ortraffic: this.state.semresult[21],
+            Adtraffic: this.state.semresult[24],
+            Orkw: this.state.semresult[15],
+            Adkw: this.state.semresult[23]
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
+
     componentDidMount() {
     };
 
@@ -52,7 +76,7 @@ class SEODashboard extends Component {
         this.searchURL(this.state.search);
     };
 
-    render() {
+    render(){
         return (
             <div>
                 <Container>
@@ -61,9 +85,11 @@ class SEODashboard extends Component {
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
+                        clearSearch={this.clearSearch}
+                        saveSearch={this.saveSearch}
                     />
                     <TopStats
-                        pageSpeed={(this.state.result.loadingExperience === undefined)
+                        pageSpeedScore={(this.state.result.loadingExperience === undefined)
                             ? "no page speed"
                             : this.state.result.loadingExperience.overall_category
                         }
@@ -95,7 +121,7 @@ class SEODashboard extends Component {
                     />
                 </Container>
             </div>
-        )
+        );
     }
 }
 
