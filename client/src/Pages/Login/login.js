@@ -21,14 +21,16 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
+    
     const { username, password } = this.state;
+    console.log(username)
 
-    axios.post('/api/auth/login', { username, password })
+
+    axios.post('/api/auth/login', { "username": username, "password": password })
       .then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
         this.setState({ message: '' });
-        this.props.history.push('/')
+        this.props.history.push('/profile')
       })
       .catch((error) => {
         if(error.response.status === 401) {
