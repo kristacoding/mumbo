@@ -45,7 +45,7 @@ class SEODashboard extends Component {
         event.preventDefault();
         API.saveUrl({
             URL: this.state.search, 
-            pageSpeedScore: this.state.result.loadingExperience.overall_category,
+            pageSpeedScore: 12,
             domainRank: this.state.semresult[14],
             organicTraffic: this.state.semresult[21], 
             totalOrganicKW: this.state.semresult[15],

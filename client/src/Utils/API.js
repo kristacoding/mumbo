@@ -11,20 +11,20 @@ const api = {
     },
     // Gets all books
     getUrls: function () {
-        return axios.get("/profile");
+        return axios.get("api/profile");
     },
     // Gets the book with the given id
     getUrl: function (id) {
-        return axios.get("/profile/" + id);
+        return axios.get("/api/profile/" + id);
     },
     // Deletes the book with the given id
     deleteUrl: function (id) {
-        return axios.delete("/profile/" + id);
+        return axios.delete("/api/profile/" + id);
     },
     // Saves a book to the database
     saveUrl: function (urlData) {
         console.log(urlData)
-        return axios.post("/profile", urlData);
+        return axios.post("/api/profile", urlData);
         
     }
 };
