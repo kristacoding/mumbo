@@ -1,5 +1,8 @@
 import React from "react";
-import { Bar, Pie } from "react-chartjs-2";
+import { Card } from "react-bootstrap";
+import { Pie } from "react-chartjs-2";
+
+
 function Chartdigest(props) {
 
   let chartData1 = {
@@ -38,32 +41,36 @@ function Chartdigest(props) {
 
   return (
     <div>
-      <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-          Adwords Traffic & Adwords Keywords
-                        </div>
-        <div class="card-body">
+      <Card className="shadow p-3 mb-5 bg-white rounded">
+        <Card.Header className="font-weight-bold text-secondary">
+          Adwords Traffic & Adwords Keywords         
+        </Card.Header>
+        <Card.Body>
           <Pie
             data={chartData1}
-            options={{ maintainAspectRatio: true,  legend: {
-              display: false
-            }}}
+            options={{
+              maintainAspectRatio: true, legend: {
+                display: false
+              }
+            }}
           />
-        </div>
-      </div>
-      <div class="card border-left-secondary shadow p-3 mb-5 bg-white rounded">
-        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Header className="font-weight-bold text-secondary">
           Organic Cost Vs Ad Cost
-                        </div>
-        <div class="card-body">
+        </Card.Header>
+        <Card.Body>
           <Pie
             data={chartData2}
-            options={{ maintainAspectRatio: true,  legend: {
-              display: false
-            }}}
+            options={{
+              maintainAspectRatio: true, legend: {
+                display: false
+              }
+            }}
           />
-        </div>
-      </div>
+        </Card.Body>
+      </Card>
     </div>
   );
 

@@ -5,7 +5,7 @@ import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/header/header"
 import SearchBar from "../../components/SearchBar/Searchbar"
-import TopStats from "../../components/topStats/topStats";
+import TopStats from "../../components/Topstats/topStats";
 import TableUrls from "../../components/Toppages/Toppages";
 import { Col, Row } from "react-bootstrap";
 
@@ -69,7 +69,7 @@ class SEODashboard extends Component {
         return (
             <div>
                 <Container>
-                    <Header />
+                    <Header Sitename={this.state.search} />
                     <SearchBar
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
