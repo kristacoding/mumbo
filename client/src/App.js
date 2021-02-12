@@ -5,9 +5,9 @@ import Footer from "./components/Footer/footer";
 import Container from "./components/Container/container"
 import Login from "./Pages/Login/login"; 
 import Register from "./Pages/Register/register";
-import SEODashboard from "./Pages/dashboard";
+import SEODashboard from "./Pages/Dashboard/dashboard";
 import Logout from "./Pages/Logout/logout";
-import Profile from "./Pages/profile";
+import Profile from "./Pages/Profilepage/profile";
 import "./App.css";
 
 function App() {

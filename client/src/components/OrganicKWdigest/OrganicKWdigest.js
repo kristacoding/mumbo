@@ -26,8 +26,7 @@ function OrganicKWdigest(props) {
 
    
         return (
-            <div class="row">
-                <div class="col-sm-12">
+                <div class="">
                     <div class="card shadow p-3 mb-5 bg-white rounded">
                         <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
                             Organic KW Postion Spread
@@ -40,7 +39,6 @@ function OrganicKWdigest(props) {
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 
