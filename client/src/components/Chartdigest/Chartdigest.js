@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Bar, Pie } from "react-chartjs-2";
 function Chartdigest(props) {
 
   let chartData1 = {
@@ -8,12 +8,12 @@ function Chartdigest(props) {
       label: '',
       data: [props.Adtraffic, props.Adkw],
       backgroundColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(75, 192, 192, 1)'
+        'rgba(75, 192, 192, 1)',
+        'rgba(255, 99, 132, 1)'
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(75, 192, 192, 1)'
+        'rgba(75, 192, 192, 1)',
+        'rgba(255, 99, 132, 1)'
       ],
       borderWidth: 0
     }]
@@ -35,6 +35,7 @@ function Chartdigest(props) {
       borderWidth: 0
     }]
   };
+
   return (
     <div>
       <div class="card shadow p-3 mb-5 bg-white rounded">
@@ -42,20 +43,24 @@ function Chartdigest(props) {
           Adwords Traffic & Adwords Keywords
                         </div>
         <div class="card-body">
-          <Bar
+          <Pie
             data={chartData1}
-            options={{ maintainAspectRatio: true }}
+            options={{ maintainAspectRatio: true,  legend: {
+              display: false
+            }}}
           />
         </div>
       </div>
       <div class="card border-left-secondary shadow p-3 mb-5 bg-white rounded">
         <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
-          Organic Traffic & Organic Keywords
+          Organic Cost Vs Ad Cost
                         </div>
         <div class="card-body">
-          <Bar
+          <Pie
             data={chartData2}
-            options={{ maintainAspectRatio: true }}
+            options={{ maintainAspectRatio: true,  legend: {
+              display: false
+            }}}
           />
         </div>
       </div>

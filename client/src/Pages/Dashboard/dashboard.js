@@ -21,8 +21,8 @@ class SEODashboard extends Component {
     searchURL = (query) => {
         API.getPageSpeed(query)
             .then(res => {
+                console.log(res)
                 this.setState({ result: res.data })
-                console.log(result)
             })
             .catch(err => console.log(err));
         //api call for SEMrush    
