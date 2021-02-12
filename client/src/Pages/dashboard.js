@@ -7,7 +7,7 @@ import Header from "../components/header/header"
 import SearchBar from "../components/SearchBar/Searchbar"
 import TopStats from "../components/topStats/topStats";
 import axios from "axios";
-
+import Chart from 'chart.js';
 
 
 class SEODashboard extends Component {
@@ -19,27 +19,22 @@ class SEODashboard extends Component {
     };
 
     searchURL = (query) => {
-        console.log(query)
         API.getPageSpeed(query)
             .then(res => {
-                console.log(res)
                 this.setState({ result: res.data })
-                console.log(this.state.result);
             })
             .catch(err => console.log(err));
+        //api call for SEMrush    
         API.getSemrush(query)
             .then(res => {
-                console.log(res.data)
                 const data = res.data
+                //sorting the response to json
                 const arr = data.split(/;|\n/);
-                console.log(arr);
+                console.log(arr)
                 this.setState({ semresult: arr })
             })
             .catch(err => console.log(err));
-
     };
-
-
 
     clearSearch = event => {
         event.preventDefault();
@@ -48,7 +43,6 @@ class SEODashboard extends Component {
     };
 
     componentDidMount() {
-        this.searchURL();
     };
 
     handleInputChange = event => {
@@ -77,23 +71,30 @@ class SEODashboard extends Component {
                         }
                         domainRank={(this.state.semresult.length < 1)
                             ? "test"
-                            : this.state.semresult[12]
+                            : this.state.semresult[14]
                         }
                         organicTraffic={(this.state.semresult.length < 1)
                             ? "test"
-                            : this.state.semresult[17]
+                            : this.state.semresult[21]
                         }
-                        firstPageKW={(this.state.semresult.length < 1)
-                            ? "test"
-                            : this.state.semresult[14]
-                        }
-                        kwStriking={(this.state.semresult.length < 1)
+                        totalOrganicKW={(this.state.semresult.length < 1)
                             ? "test"
                             : this.state.semresult[15]
                         }
                     />
-                    <OrganicKWdigest />
-                    <Chartdigest />
+                    <OrganicKWdigest 
+                    Top3={this.state.semresult[16]}
+                    Top10={this.state.semresult[17]}
+                    Top20={this.state.semresult[18]}
+                    Top30={this.state.semresult[19]}
+                    Top40={this.state.semresult[20]}
+                    />
+                    <Chartdigest 
+                     Ortraffic={this.state.semresult[21]}
+                     Adtraffic={this.state.semresult[24]}
+                     Orkw={this.state.semresult[15]}
+                     Adkw={this.state.semresult[23]}
+                    />
                 </Container>
             </div>
         )
