@@ -9,6 +9,7 @@ var User = require("../../models/user");
 
 
 router.post('/register', function (req, res) {
+    console.log(req.body)
     if (!req.body.username || !req.body.password) {
         res.json({ success: false, msg: 'Please pass username and password.' });
     } else {
@@ -19,6 +20,7 @@ router.post('/register', function (req, res) {
         // save the user
         newUser.save(function (err) {
             if (err) {
+                console.log(err)
                 return res.json({ success: false, msg: 'Username already exists.' });
             }
             res.json({ success: true, msg: 'Successful created new user.' });
