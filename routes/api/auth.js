@@ -59,8 +59,8 @@ router.get("/logout", function (req, res){
     res.redirect("/");
 }); 
 
-// Matches with "/api/auth/profile"
-router.route("/profile")
+// Matches with "/api/auth"
+router.route("/")
   .get(urlControllers.findAll)
   .post(urlControllers.create);
 

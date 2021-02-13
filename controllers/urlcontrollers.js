@@ -1,4 +1,4 @@
-const db = require("../models/url");
+const db = require("../models");
 
 // Defining methods for the urlController
 module.exports = {
