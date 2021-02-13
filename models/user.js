@@ -6,11 +6,6 @@ var UserSchema = new Schema({
     username: {
         type: String,
         unique: true,
-        required: true
-    },
-    email: {
-        type: String,
-        unique: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
     password: {

@@ -1,66 +1,55 @@
 import React from "react";
+import { Card, Col, Row } from "react-bootstrap";
 import "./style.css";
 
 
 function topStats(props) {
-  
+
   return (
-    <div className="row dash-row">
-    <div className="col-md-3">
-      <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
-        <div className="card-body left-padding">
-          <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Page Speed Score: {props.pageSpeed}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="col-md-3">
-      <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
-        <div className="card-body left-padding">
-          <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Overall Domain Rank</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="col-md-2">
-      <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
-        <div className="card-body left-padding">
-          <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Projected Oranic Traffic</div>
-          </div>
-          <div className="row mini-dash-row">
-            <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="average-price"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="col-md-2">
-      <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
-        <div className="card-body left-padding">
-          <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">First Page Keywords</div>
-          </div>
-          <div className="row mini-dash-row">
-            <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="col-md-2">
-      <div className="card border-left-info shadow p-3 mb-5 bg-white rounded">
-        <div className="card-body left-padding">
-          <div className="row mini-dash-row">
-            <div className="text-info font-weight-bold text-uppercase">Keywords in Striking Distance </div>
-          </div>
-          <div className="row mini-dash-row">
-            <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <Row>
+      <Col md={3}>
+        <Card className="border-left-info shadow p-3 mb-5 bg-white rounded">
+          <Card.Body className="left-padding">
+            <Row className="mini-dash-row">
+              <div className="text-info font-weight-bold text-uppercase">Page Speed Score:</div>
+            </ Row>
+            <p>{props.pageSpeed}</p>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={3}>
+        <Card className="border-left-info shadow p-3 mb-5 bg-white rounded">
+          <Card.Body className="card-body left-padding">
+            <Row className="mini-dash-row">
+              <div className="text-info font-weight-bold text-uppercase">Overall Domain Rank:</div>
+            </Row>
+            <p>{props.domainRank}</p>
+          </ Card.Body>
+        </Card>
+      </Col>
+      <Col md={3}>
+        <Card className="border-left-info shadow p-3 mb-5 bg-white rounded">
+          <Card.Body className="left-padding">
+            <Row className="mini-dash-row">
+              <div className="text-info font-weight-bold text-uppercase">Projected Organic Traffic:{props.organicTraffic}</div>
+            </Row>
+            <p>{props.pageSpeed}</p>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={3}>
+        <Card className="border-left-info shadow p-3 mb-5 bg-white rounded">
+          <Card.Body className="left-padding">
+            <Row className="mini-dash-row">
+              <div className="text-info font-weight-bold text-uppercase">Total KW's:</div>
+            </Row>
+            <Row className="mini-dash-row">
+              <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate">{props.totalOrganicKW}</span></div>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
+    </ Row>
   );
 }
 

@@ -9,6 +9,7 @@ var User = require("../../models/user");
 
 
 router.post('/register', function (req, res) {
+    console.log(req.body)
     if (!req.body.username || !req.body.password) {
         res.json({ success: false, msg: 'Please pass username and password.' });
     } else {
@@ -19,6 +20,7 @@ router.post('/register', function (req, res) {
         // save the user
         newUser.save(function (err) {
             if (err) {
+                console.log(err)
                 return res.json({ success: false, msg: 'Username already exists.' });
             }
             res.json({ success: true, msg: 'Successful created new user.' });
@@ -26,7 +28,8 @@ router.post('/register', function (req, res) {
     }
 });
 
-router.post('/'|| '/login', function (req, res) {
+router.post('/login', function (req, res) {
+    console.log(req.body.username)
     User.findOne({
         username: req.body.username
     }, function (err, user) {
@@ -49,5 +52,15 @@ router.post('/'|| '/login', function (req, res) {
         }
     });
 });
+
+//route for logging out a user
+router.get("/logout", function (req, res){
+    req.logout();
+    res.redirect("/");
+}); 
+
+router.get("/api/profile", function(req, res) {
+
+})
 
 module.exports = router;
