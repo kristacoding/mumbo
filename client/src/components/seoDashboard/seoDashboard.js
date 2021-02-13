@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "../Container/container"
 import Header from  "../header/header"
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/Searchbar";
 import TopStats from "../topStats/topStats";
 
 function seoDashboard() {

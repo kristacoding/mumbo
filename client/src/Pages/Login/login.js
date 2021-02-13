@@ -21,14 +21,16 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
+    
     const { username, password } = this.state;
+    console.log(username)
 
-    axios.post('/api/auth/login', { username, password })
+
+    axios.post('/api/auth/login', { "username": username, "password": password })
       .then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
         this.setState({ message: '' });
-        this.props.history.push('/')
+        this.props.history.push('/profile')
       })
       .catch((error) => {
         if(error.response.status === 401) {
@@ -40,19 +42,19 @@ class Login extends Component {
   render() {
     const { username, password, message } = this.state;
     return (
-      <div class="container">
+      <div className="container">
         <form class="form-signin" onSubmit={this.onSubmit}>
           {message !== '' &&
             <div class="alert alert-warning alert-dismissible" role="alert">
               { message }
             </div>
           }
-          <h2 class="form-signin-heading">Please sign in</h2>
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" class="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" class="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+          <h2 className="form-signin-heading">Please sign in</h2>
+          <label for="inputEmail" className="sr-only">Email address</label>
+          <input type="email" className="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required/>
+          <label for="inputPassword" className="sr-only">Password</label>
+          <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required/>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>
           <p>
             Not a member? <Link to="/register"
           className={window.location.pathname === "/register"}
