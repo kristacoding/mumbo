@@ -24,7 +24,7 @@ function OrganicKWdigest(props) {
         }]
     }
 
-
+    console.log(props.top3, props.top10, props.top20, props.top30, props.top40)
 
 
     return (
