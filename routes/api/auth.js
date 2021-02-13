@@ -1,4 +1,3 @@
-var mongoose = require('mongoose');
 var passport = require('passport');
 var settings = require('../../config/settings');
 require('../../config/passport')(passport);
@@ -6,6 +5,7 @@ var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 var User = require("../../models/user");
+var urlControllers = require("../../controllers/urlcontrollers");
 
 
 router.post('/register', function (req, res) {
@@ -59,8 +59,16 @@ router.get("/logout", function (req, res){
     res.redirect("/");
 }); 
 
-router.get("/api/profile", function(req, res) {
+// Matches with "/api/auth"
+router.route("/")
+  .get(urlControllers.findAll)
+  .post(urlControllers.create);
 
-})
+// Matches with "/api/auth/:id"
+router
+  .route("/:id")
+  .get(urlControllers.findById)
+  .put(urlControllers.update)
+  .delete(urlControllers.remove);
 
 module.exports = router;

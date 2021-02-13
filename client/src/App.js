@@ -21,7 +21,7 @@ function App() {
         <Route exact path='/register' component={Register} />
         <Route exact path="/mumbo" component={SEODashboard} />
         <Route exact path="/seo-dashboard" component={SEODashboard} />
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path={["/profile", "/profile/:id"]} component={Profile} />
         <Route exact path="/logout" component={Logout} />
       </Container>
       <Footer />
