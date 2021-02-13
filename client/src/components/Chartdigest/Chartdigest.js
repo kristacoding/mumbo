@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { Pie } from "react-chartjs-2";
+import { Pie, Bar } from "react-chartjs-2";
 
 
 function Chartdigest(props) {
@@ -23,10 +23,10 @@ function Chartdigest(props) {
   };
 
   let chartData2 = {
-    labels: ['Organic Traffic', 'Organic Keywords'],
+    labels: ['Organic Value', 'Adwords Value'],
     datasets: [{
       label: '',
-      data: [props.Ortraffic, props.Orkw],
+      data: [props.Orcost, props.Adwordscost],
       backgroundColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(75, 192, 192, 1)'
@@ -41,9 +41,9 @@ function Chartdigest(props) {
 
   return (
     <div>
-      <Card className="shadow p-3 mb-5 bg-white rounded">
+      <Card className="shadow p-3 mb-5 bg-white ">
         <Card.Header className="font-weight-bold text-secondary">
-          Adwords Traffic & Adwords Keywords         
+          Adwords Metrics        
         </Card.Header>
         <Card.Body>
           <Pie
@@ -58,7 +58,7 @@ function Chartdigest(props) {
       </Card>
       <Card>
         <Card.Header className="font-weight-bold text-secondary">
-          Organic Cost Vs Ad Cost
+          Total Traffic Value
         </Card.Header>
         <Card.Body>
           <Pie
