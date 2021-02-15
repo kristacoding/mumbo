@@ -28,8 +28,9 @@ function Chartdigest(props) {
       label: '',
       data: [props.Orcost, props.Adwordscost],
       backgroundColor: [
+        'rgba(75, 192, 192, 1)',
         'rgba(255, 99, 132, 1)',
-        'rgba(75, 192, 192, 1)'
+      
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',

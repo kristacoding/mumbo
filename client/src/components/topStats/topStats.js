@@ -13,7 +13,7 @@ function topStats(props) {
         <Card className="border-left-info shadow p-3 mb-5">
           <Card.Body className="left-padding">
             <Row className="mini-dash-row">
-              <div className="text-info font-weight-bold text-uppercase">Page Speed Score:</div>
+              <div className="text-secondaryfont-weight-bold text-uppercase">Page Speed Score:</div>
             </ Row>
             <div className="h5 font-weight-bold text-secondary text-uppercase">{props.pageSpeed}</div>
           </Card.Body>
@@ -23,7 +23,7 @@ function topStats(props) {
         <Card className="border-left-info shadow p-3 mb-5">
           <Card.Body className="left-padding">
             <Row className="mini-dash-row">
-              <div className="text-info font-weight-bold text-uppercase">Overall Domain Rank:</div>
+              <div className="text-secondary font-weight-bold text-uppercase">Overall Domain Rank:</div>
             </Row>
             <div className="h5 font-weight-bold text-secondary text-uppercase">{formattedDR}</div>
           </ Card.Body>
@@ -33,7 +33,7 @@ function topStats(props) {
         <Card className="border-left-info shadow p-3 mb-5">
           <Card.Body className="left-padding">
             <Row className="mini-dash-row">
-              <div className="text-info font-weight-bold text-uppercase">Organic Traffic:</div>
+              <div className="text-secondary font-weight-bold text-uppercase">Organic Traffic:</div>
             </Row>
             <Row className="mini-dash-row">
               <div className="h5 font-weight-bold text-secondary text-uppercase">{formattedTraffic}</div>
@@ -45,7 +45,7 @@ function topStats(props) {
         <Card className="border-left-info shadow p-3 mb-5">
           <Card.Body className="left-padding">
             <Row className="mini-dash-row">
-              <div className="text-info font-weight-bold text-uppercase">Total Keywords:</div>
+              <div className="text-secondary font-weight-bold text-uppercase">Total Keywords:</div>
             </Row>
             <Row className="mini-dash-row">
               <div className="h5 font-weight-bold text-secondary text-uppercase"><span className="completion-rate">{formattedKeywords}</span></div>

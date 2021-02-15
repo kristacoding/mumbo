@@ -6,7 +6,7 @@ import { Navbar } from "react-bootstrap";
 function Nav() {
   return (
     <Navbar className="navbar navbar-expand-lg navbar-light bg-light">
-      <Navbar.Brand>
+      <Navbar.Brand className="navbar-brand">
         <Link
           to="/"
           className={
@@ -15,7 +15,7 @@ function Nav() {
               : "nav-link"
           }
         >
-          MUMBO
+          <div className="brandName">MUMBO</div>
             </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>

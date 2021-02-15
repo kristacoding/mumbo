@@ -22,18 +22,18 @@ function SearchBar(props) {
     </Col>
     </Form.Row>
     <Form.Row>
-    <Col xs="auto">
-      <Button  onClick={props.handleFormSubmit} className="mx-2 btn btn-primary">
+    <Col md="auto">
+      <Button  onClick={props.handleFormSubmit} className="mx-2 btn">
         Search
       </Button>
     </Col>
-    <Col xs="auto">
-      <Button onClick={props.saveSearch} className="mx-2 btn btn-primary">
+    <Col md="auto">
+      <Button onClick={props.saveSearch} className="mx-2 btn">
         Save
       </Button>
     </Col>
-    <Col xs="auto">
-      <Button onClick={props.clearSearch} className="mx-2 btn btn-primary">
+    <Col md="auto">
+      <Button onClick={props.clearSearch} className="mx-2 btn">
         Clear
       </Button>
     </Col>
