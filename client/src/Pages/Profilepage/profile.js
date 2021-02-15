@@ -15,15 +15,17 @@ class Profile extends Component {
     };
 
     componentDidMount() {
+        console.log("test")
         this.getSavedURLs();
     }
 
     getSavedURLs = () => {
-        API.getUrls()
+        API.saveUrls()
             .then(res =>
                 this.setState({
                     urls: res.data
-                })
+                }),
+                console.log(res.data)
             )
             .catch(err => console.log(err));
     };
