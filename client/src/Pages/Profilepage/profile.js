@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import Container from "../../components/Container/container"
 import Profileheader from "../../components/Profileheader/Profileheader"
-
+import { List } from "../../components/List/List";
+import { Card, Col, Row } from "react-bootstrap";
+import API from "../../Utils/API"
+import Profileblock from "../../components/Profileblock/profile"
+import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 
 class Profile extends Component {
     state = {
@@ -17,7 +21,6 @@ class Profile extends Component {
                 this.setState({
                     urls: res.data
                 }),
-                console.log(res.data)
             )
             .catch(err => console.log(err));
     };
@@ -30,7 +33,7 @@ class Profile extends Component {
                 <Profileheader />
                 <Row>
                     <Col size="md-12">
-                        <Card title="Saved URLs">
+                        <Card title="Saved Website Information">
                             {this.state.urls.length ? (
                                 <List>
                                     {this.state.urls.map(url => (
@@ -70,7 +73,7 @@ class Profile extends Component {
                         </Card>
                     </Col>
                 </Row>
-            </Container>
+            </Container >
         );
     }
 }
