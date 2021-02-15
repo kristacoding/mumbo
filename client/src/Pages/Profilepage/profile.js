@@ -20,7 +20,7 @@ class Profile extends Component {
     }
 
     getSavedURLs = () => {
-        API.saveUrls()
+        API.getUrls()
             .then(res =>
                 this.setState({
                     urls: res.data
