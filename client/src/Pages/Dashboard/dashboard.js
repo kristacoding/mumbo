@@ -64,7 +64,27 @@ class SEODashboard extends Component {
         event.preventDefault()
         this.searchURL(this.state.search);
     };
-
+    saveSearch = event => {
+        event.preventDefault();
+        API.saveUrl({
+            URL: this.state.search, 
+            pageSpeedScore: 12,
+            domainRank: this.state.semresult[14],
+            organicTraffic: this.state.semresult[21], 
+            totalOrganicKW: this.state.semresult[15],
+            Top3: this.state.semresult[16],
+            Top10: this.state.semresult[17], 
+            Top20: this.state.semresult[18],
+            Top30: this.state.semresult[19], 
+            Top40: this.state.semresult[20], 
+            Ortraffic: this.state.semresult[21],
+            Adtraffic: this.state.semresult[24],
+            Orkw: this.state.semresult[15],
+            Adkw: this.state.semresult[23]
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
     render() {
         let foundResults = (this.state.semresulttp.length > 0);
         return (
@@ -75,6 +95,8 @@ class SEODashboard extends Component {
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
+                        clearSearch={this.clearSearch}
+                        saveSearch={this.saveSearch}
                     />
                     {!foundResults ?
                         <>
