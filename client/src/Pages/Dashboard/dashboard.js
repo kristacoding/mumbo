@@ -93,7 +93,7 @@ class SEODashboard extends Component {
         return (
             <div>
                 <Container>
-                    <Header Sitename={this.state.search} />
+                    <Header Sitename={this.state.semresult[13]} />
                     <SearchBar
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}

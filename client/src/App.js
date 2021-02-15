@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
-import Footer from "./components/Footer/footer";
 import Container from "./components/Container/container"
 import Login from "./Pages/Login/login"; 
 import Register from "./Pages/Register/register";
@@ -24,7 +23,6 @@ function App() {
         <Route exact path={["/profile", "/profile/:id"]} component={Profile} />
         <Route exact path="/logout" component={Logout} />
       </Container>
-      <Footer />
     </Router>
   );
 }

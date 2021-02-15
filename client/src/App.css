@@ -1,3 +1,12 @@
+form.search {
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+form.search button[type="submit"] {
+  float: right;
+  margin-top: 10px;
+}
 .form.signup,
 .form.login {
   margin-top: 50px;
@@ -10,8 +19,11 @@
   
 
 } 
+.navbar-brand{
+  color: red !important;
+  }
 .header {
-  background-color: lightgray;
+  background-color: #82c09a;
   border-width: thin;
   padding: 20px;
 }
@@ -20,27 +32,25 @@
   height: 100%;
 }
 body {
-  background-color: #659dbd;
+  background-color: #82C09A;
   margin: 0;
  min-height: 100vh;
 }
 
-.results-background {
-  background-color: #f8fafe;
-}
-
 .dash {
-  background-color: #9CBED3;
+  background-color:#72B88D;
 }
 
 .border-left-info {
-  border-left: #17a2b8;
+  border-left: #F4985A;
   border-left-style: solid;
   padding: 25px;
 }
-
+#brandName {
+  text-decoration-color: #63B081;
+}
 .text-info {
-  text-decoration-color: #17a2b8;
+  text-decoration-color: #63B081;
 }
 
 .left-padding {
@@ -70,5 +80,5 @@ body {
 }
 
 .text-secondary {
-  text-decoration-color: #858796;
+  text-decoration-color: #63B081;
 }

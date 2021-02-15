@@ -11,7 +11,7 @@ function OrganicKWdigest(props) {
             label: '',
             data: [props.Top3, props.Top10, props.Top20, props.Top30, props.Top40],
             backgroundColor: [
-                'rgba(75, 192, 192, 0.2)',
+                '#4F6D7A',
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)'
             ],
