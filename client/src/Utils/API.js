@@ -12,19 +12,19 @@ const api = {
     getSemrushtp: function(URL){    
         return axios.get("https://cors-everywhere-jrl.herokuapp.com/https://api.semrush.com/?type=domain_organic_unique&key="+ process.env.REACT_APP_PASSKEY +"&display_filter=%2B%7CPc%7CGt%7C100&display_limit=10&export_columns=Ur,Pc,Tg,Tr&domain="+ URL +"&display_sort=tr_desc&database=us");
     },
-    // Gets all books
+    // Gets all url
     getUrls: function () {
         return axios.get("api/auth");
     },
-    // Gets the book with the given id
+    // Gets the url with the given id
     getUrl: function (id) {
         return axios.get("/api/auth/" + id);
     },
-    // Deletes the book with the given id
+    // Deletes the url with the given id
     deleteUrl: function (id) {
         return axios.delete("/api/auth/" + id);
     },
-    // Saves a book to the database
+    // Saves a url to the database
     saveUrl: function (urlData) {
         console.log(urlData)
         return axios.post("/api/auth", urlData);

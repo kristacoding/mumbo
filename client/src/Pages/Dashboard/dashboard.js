@@ -5,7 +5,7 @@ import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/header/header"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import TopStats from "../../components/Topstats/topStats";
+import TopStats from "../../components/topStats/topStats";
 import TableUrls from "../../components/Toppages/Toppages";
 import { Col, Row } from "react-bootstrap";
 
@@ -21,7 +21,7 @@ class SEODashboard extends Component {
     searchURL = (query) => {
         API.getPageSpeed(query)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 this.setState({ result: res.data })
             })
             .catch(err => console.log(err));
@@ -64,11 +64,13 @@ class SEODashboard extends Component {
         event.preventDefault()
         this.searchURL(this.state.search);
     };
+
     saveSearch = event => {
         event.preventDefault();
-        API.saveUrl({
+        API.saveUrl(
+            {
             URL: this.state.search, 
-            pageSpeedScore: 12,
+            pageSpeedScore: this.state.result.loadingExperience.overall_category,
             domainRank: this.state.semresult[14],
             organicTraffic: this.state.semresult[21], 
             totalOrganicKW: this.state.semresult[15],
@@ -81,7 +83,8 @@ class SEODashboard extends Component {
             Adtraffic: this.state.semresult[24],
             Orkw: this.state.semresult[15],
             Adkw: this.state.semresult[23]
-        })
+        }
+        )
             .then(res => console.log(res))
             .catch(err => console.log(err));
     }
@@ -107,8 +110,8 @@ class SEODashboard extends Component {
                         :
                         <>
                             <TopStats
-                                pageSpeed={(this.state.result.loadingExperience === undefined)
-                                    ? "no page speed"
+                                pageSpeedScore={(this.state.result.loadingExperience === undefined)
+                                    ? "Google is moving slow"
                                     : this.state.result.loadingExperience.overall_category
                                 }
                                 domainRank={(this.state.semresult.length < 1)
