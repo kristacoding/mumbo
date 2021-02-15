@@ -5,8 +5,9 @@ import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/header/header"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import TopStats from "../../components/topStats/topStats";
+import TopStats from "../../components/Topstats/TopStats";
 import TableUrls from "../../components/Toppages/Toppages";
+import Headerbuttonless from "../../components/Headerbuttonless/Headerbuttonless";
 import { Col, Row } from "react-bootstrap";
 
 
@@ -49,7 +50,7 @@ class SEODashboard extends Component {
 
     clearSearch = event => {
         event.preventDefault();
-        const clear = this.searchURL();
+        const clear =  window.location.reload(false);
         return clear
     };
 
@@ -123,16 +124,22 @@ class SEODashboard extends Component {
         return (
             <div>
                 <Container>
-                    <Header Sitename={this.state.semresult[13]} />
-                    <SearchBar
+                    { !foundResults ?
+                    <Headerbuttonless />
+                    :
+                    <Header Sitename={this.state.semresult[13]} 
+                    clearSearch={this.clearSearch}
+                    saveSearch={this.saveSearch}/>
+                    }
+                    {!foundResults ?
+                        <>
+                             <SearchBar
                         value={this.state.search}
                         handleInputChange={this.handleInputChange}
                         handleFormSubmit={this.handleFormSubmit}
                         clearSearch={this.clearSearch}
                         saveSearch={this.saveSearch}
                     />
-                    {!foundResults ?
-                        <>
                             <Row className="text-center">
                                 <h5>Search For Site!</h5>
                             </Row>
@@ -140,7 +147,7 @@ class SEODashboard extends Component {
                         :
                         <>
                             <TopStats
-                                pageSpeedScore={(this.state.result.loadingExperience === undefined)
+                                pageSpeed={(this.state.result.loadingExperience === undefined)
                                     ? "Google is moving slow"
                                     : this.state.result.loadingExperience.overall_category
                                 }
