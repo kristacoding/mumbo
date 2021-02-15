@@ -14,7 +14,7 @@ const websiteSchema = new Schema({
   Top20: { type: Number, required: true},
   Top30: { type: Number, required: true},
   Top40: { type: Number, required: true},
-  Ortraffic: {type: Number, required: true},
+  Orcost: {type: Number, required: true},
   Adtraffic: {type: Number, required: true},
   Orkw: {type: Number, required: true},
   Adkw: {type: Number, required: true},
