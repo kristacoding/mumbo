@@ -13,7 +13,7 @@ function topStats(props) {
         <Card className="border-left-info shadow p-3 mb-5">
           <Card.Body className="left-padding">
             <Row className="mini-dash-row">
-              <div className="text-secondaryfont-weight-bold text-uppercase">Page Speed Score:</div>
+              <div className="text-secondary font-weight-bold text-uppercase">Page Speed Score:</div>
             </ Row>
             <div className="h5 font-weight-bold text-secondary text-uppercase">{props.pageSpeed}</div>
           </Card.Body>

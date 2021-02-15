@@ -1,6 +1,6 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { Col, Row, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 
 function OrganicKWdigest(props) {
@@ -11,14 +11,20 @@ function OrganicKWdigest(props) {
             label: '',
             data: [props.Top3, props.Top10, props.Top20, props.Top30, props.Top40],
             backgroundColor: [
-                '#4F6D7A',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                '#82C09A',
+                '#8289C0',
+                '#C082A8',
+                '#C0B982',
+                '#faae7b',
+
             ],
             borderColor: [
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                '#82C09A',
+                '#8289C0',
+                '#C082A8',
+                '#C0B982',
+                '#faae7b',
+
             ],
             borderWidth: 0
         }]
