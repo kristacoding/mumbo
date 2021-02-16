@@ -16,7 +16,7 @@ var UserSchema = new Schema({
     userCreated: {
         type: Date,
         default: Date.now
-    }
+    }, 
 });
 
 UserSchema.pre('save', function (next) {
