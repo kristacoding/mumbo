@@ -4,6 +4,7 @@ import { Navbar } from "react-bootstrap";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Nav() {
+
   return (
     <Navbar className="navbar navbar-expand-lg  bg-light">
       <Navbar.Brand className="navbar-brand">
@@ -57,6 +58,7 @@ function Nav() {
             <Link
               to="/logout"
               className={window.location.pathname === "/form" ? "nav-link active" : "nav-link"}
+              onClick={localStorage.removeItem('jwtToken')}
             >
               Logout
             </Link>

@@ -19,12 +19,13 @@ class Profile extends Component {
     }
     getSavedURLs = () => {
         API.getUrls()
-            .then(res =>
+            .then(res => {
                 this.setState({
-                    urls: res.data
+                    urls: res.data[0].WebsiteInfo
                 }),
-            )
-            .catch(err => console.log(err));
+                    console.log(res.data[0].WebsiteInfo)
+            })
+            .catch (err => console.log(err));
     };
     handleURLDelete = id => {
         API.deleteUrl(id).then(res => this.getSavedURLs());

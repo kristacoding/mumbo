@@ -16,7 +16,14 @@ var UserSchema = new Schema({
     userCreated: {
         type: Date,
         default: Date.now
-    }
+    },
+
+    WebsiteInfo: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "WebsiteInfo"
+        }
+    ]
     
 });
 
