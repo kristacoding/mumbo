@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Col, Row, Button } from "react-bootstrap";
+import Container from "../../components/Container/container";
 import './style.css';
 
 class Login extends Component {
@@ -42,6 +44,8 @@ class Login extends Component {
   render() {
     const { username, password, message } = this.state;
     return (
+      <>
+      
       <div className="container">
         <form class="form-signin" onSubmit={this.onSubmit}>
           {message !== '' &&
@@ -59,10 +63,11 @@ class Login extends Component {
             Not a member? <Link to="/register"
           className={window.location.pathname === "/register"}
           >
-          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Register here</Link>
+          <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Register here</Link>
           </p>
         </form>
       </div>
+      </>
     );
   }
 }
