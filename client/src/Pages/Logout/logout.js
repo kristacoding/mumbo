@@ -6,7 +6,7 @@ function logout() {
     }
 
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             <h3>Hope we cleared up all your SEO mumbo jumbo - Come back soon! </h3>
         </div>
     );

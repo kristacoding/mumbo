@@ -5,11 +5,10 @@ import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/header/header"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import TopStats from "../../components/topStats/topStats";
+import TopStats from "../../components/Topstats/TopStats";
 import TableUrls from "../../components/Toppages/Toppages";
 import Headerbuttonless from "../../components/Headerbuttonless/Headerbuttonless";
 import { Col, Row } from "react-bootstrap";
-
 
 class SEODashboard extends Component {
     state = {
@@ -52,9 +51,6 @@ class SEODashboard extends Component {
         event.preventDefault();
         const clear =  window.location.reload(false);
         return clear
-    };
-
-    componentDidMount() {
     };
 
     handleInputChange = event => {
@@ -117,6 +113,8 @@ class SEODashboard extends Component {
         }
         )
             .then(res => console.log(res))
+            const clear =  window.location.reload(false);
+            return clear
             .catch(err => console.log(err));
     }
     render() {
@@ -140,8 +138,8 @@ class SEODashboard extends Component {
                         clearSearch={this.clearSearch}
                         saveSearch={this.saveSearch}
                     />
-                            <Row className="text-center">
-                                <h5>Search For Site!</h5>
+                            <Row className="justify-content-center">
+                                <h5>Search for a site!</h5>
                             </Row>
                      </>
                         :

@@ -29,12 +29,12 @@ function TableURLs(props) {
   }
 ];
   return (
-    <div class="col-md-12">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
-        <div class="card-header h6 font-weight-bold text-secondary text-uppercase">
+    <div className="col">
+      <div className="card shadow p-3 mb-5 bg-white rounded">
+        <div className="card-header h6 font-weight-bold text-secondary text-uppercase">
           Top 10 Organic Pages
               </div>
-        <div class="card-body">
+        <div className="card-body">
         <ReactTabulator columns={columns} data={data} options={options} />
         </div>
       </div>

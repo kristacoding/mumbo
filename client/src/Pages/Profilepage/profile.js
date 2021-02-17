@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import Container from "../../components/Container/container";
 import Profileheader from "../../components/Profileheader/Profileheader";
 import { List } from "../../components/List/List";
-import { Card, Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import API from "../../Utils/API"
 import Profileblock from "../../components/Profileblock/profile"
-import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
-import Chartdigest from "../../components/Chartdigest/Chartdigest";
+import Profilechartdigest from "../../components/Profilechartdigest/Profilechartdigest"
 import TableUrls from "../../components/Toppages/Toppages";
 
 class Profile extends Component {
@@ -35,12 +34,13 @@ class Profile extends Component {
             <Container>
                 <Profileheader />
                 <Row>
-                    <Col size="md-11">
-                        <Card title="Saved Website Information">
+                    <Col>
+                        <List title="Saved Website Information">
                             {this.state.urls.length ? (
                                 <List>
                                     {this.state.urls.map(url => (
                                         <div>
+                                            <Col md={12}>
                                             <Profileblock
                                                 key={url._id}
                                                 URL={url.URL}
@@ -54,26 +54,11 @@ class Profile extends Component {
                                                 Orkw={url.Orkw}
                                                 Adkw={url.Adkw}
                                             />
+                                            
+                                            
+                                            </Col>
                                             <Row md={12}>
-                                                <Col md={9}>
-                                                    <OrganicKWdigest
-                                                        Top3={url.Top3}
-                                                        Top10={url.Top10}
-                                                        Top20={url.Top20}
-                                                        Top30={url.Top30}
-                                                        Top40={url.Top40}
-                                                    />
-                                                </Col>
-                                                <Col md={3}>
-                                                    <Chartdigest
-                                                        Orcost={url.Orcost}
-                                                        Adtraffic={url.Adtraffic}
-                                                        Adwordscost={url.Adwordscost}
-                                                        Adkw={url.Adkw}
-                                                    />
-                                                </Col>
-                                            </Row>
-                                            <Row md={12}>
+                                                <Col md={8}>
                                                 <TableUrls
                                                     Topurl1={url.Topurl1}
                                                     Topurl2={url.Topurl2}
@@ -106,21 +91,35 @@ class Profile extends Component {
                                                     Toptraffic9={url.Toptraffic9}
                                                     Toptraffic10={url.Toptraffic10}
                                                 />
+                                                </Col>
+                                                <Col md={4}>
+                                                    <Profilechartdigest
+                                                        Adtraffic={url.Adtraffic}
+                                                        Adkw={url.Adkw}
+                                                        Top3={url.Top3}
+                                                        Top10={url.Top10}
+                                                        Top20={url.Top20}
+                                                        Top30={url.Top30}
+                                                        Top40={url.Top40}
+                                                    />
+                                                </Col>
                                             </Row>
-                                            <button
+                                            <Row className="d-flex justify-content-center" md={12}>
+                                            <Button
                                                 onClick={() => this.handleURLDelete(url._id)}
                                                 className="btn btn-danger ml-2"
                                             >
                                                 Delete
-                                            </button>
-                                            <br></br>
+                                            </Button>
+                                            </Row>
+                                            <br/>
                                         </div>
                                     ))}
                                 </List>
                             ) : (
                                     <h2 className="text-center">No Saved URLs</h2>
                                 )}
-                        </Card>
+                        </List>
                     </Col>
                 </Row>
             </Container >
