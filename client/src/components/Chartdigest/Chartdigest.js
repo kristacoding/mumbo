@@ -12,7 +12,7 @@ function Chartdigest(props) {
       data: [props.Adtraffic, props.Adkw],
       backgroundColor: [
         '#82C09A',
-              '#8289C0',
+        '#8289C0',
       ],
       borderColor: [
         '#5a3573',
@@ -30,7 +30,7 @@ function Chartdigest(props) {
       backgroundColor: [
         '#82C09A',
         '#8289C0',
-      
+
       ],
       borderColor: [
         '#5a3573',
@@ -44,7 +44,7 @@ function Chartdigest(props) {
     <div>
       <Card className="shadow p-3 mb-5 bg-white ">
         <Card.Header className="font-weight-bold text-secondary">
-          Adwords Metrics        
+          Adwords Metrics
         </Card.Header>
         <Card.Body>
           <Pie

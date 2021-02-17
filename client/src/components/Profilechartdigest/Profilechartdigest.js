@@ -12,7 +12,7 @@ function Profilechartdigest(props) {
       data: [props.Adtraffic, props.Adkw],
       backgroundColor: [
         '#82C09A',
-              '#8289C0',
+        '#8289C0',
       ],
       borderColor: [
         '#5a3573',
@@ -25,25 +25,25 @@ function Profilechartdigest(props) {
   let chartData2 = {
     labels: ['Pos. 1-3', 'Pos. 4-10', 'Pos. 11-20', 'Pos.21-30', 'Pos. 31-40'],
     datasets: [{
-        label: '',
-        data: [props.Top3, props.Top10, props.Top20, props.Top30, props.Top40],
-        backgroundColor: [
-            '#82C09A',
-            '#8289C0',
-            '#C082A8',
-            '#C0B982',
-            '#faae7b',
+      label: '',
+      data: [props.Top3, props.Top10, props.Top20, props.Top30, props.Top40],
+      backgroundColor: [
+        '#82C09A',
+        '#8289C0',
+        '#C082A8',
+        '#C0B982',
+        '#faae7b',
 
-        ],
-        borderColor: [
-            '#82C09A',
-            '#8289C0',
-            '#C082A8',
-            '#C0B982',
-            '#faae7b',
+      ],
+      borderColor: [
+        '#82C09A',
+        '#8289C0',
+        '#C082A8',
+        '#C0B982',
+        '#faae7b',
 
-        ],
-        borderWidth: 0
+      ],
+      borderWidth: 0
     }]
   };
 
@@ -51,7 +51,7 @@ function Profilechartdigest(props) {
     <div>
       <Card className="shadow p-3 mb-5 bg-white ">
         <Card.Header className="font-weight-bold text-secondary">
-          Adwords Metrics        
+          Adwords Metrics
         </Card.Header>
         <Card.Body>
           <Pie

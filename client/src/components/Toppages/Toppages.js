@@ -5,9 +5,9 @@ import { ReactTabulator } from 'react-tabulator'; // for React 15.x, use import 
 
 function TableURLs(props) {
   let columns = [
-    { title: 'URL', field: 'URL'},
-    { title: 'Keywords', field: 'Keywords'},
-    { title: 'Traffic', field: 'Traffic'}
+    { title: 'URL', field: 'URL' },
+    { title: 'Keywords', field: 'Keywords' },
+    { title: 'Traffic', field: 'Traffic' }
   ]
   let data = [
     { URL: props.Topurl1, Keywords: props.Topkw1, Traffic: props.Toptraffic1 },
@@ -20,14 +20,14 @@ function TableURLs(props) {
     { URL: props.Topurl8, Keywords: props.Topkw8, Traffic: props.Toptraffic8 },
     { URL: props.Topurl9, Keywords: props.Topkw9, Traffic: props.Toptraffic9 },
     { URL: props.Topurl10, Keywords: props.Topkw10, Traffic: props.Toptraffic10 }
-  ]; 
+  ];
   //initialize table
   let options = [
     {
-    autoColumns: true, 
-    layout: "fitDataStretch",
-  }
-];
+      autoColumns: true,
+      layout: "fitDataStretch",
+    }
+  ];
   return (
     <div className="col">
       <div className="card shadow p-3 mb-5 bg-white rounded">
@@ -35,7 +35,7 @@ function TableURLs(props) {
           Top 10 Organic Pages
               </div>
         <div className="card-body">
-        <ReactTabulator columns={columns} data={data} options={options} />
+          <ReactTabulator columns={columns} data={data} options={options} />
         </div>
       </div>
     </div>

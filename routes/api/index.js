@@ -4,7 +4,7 @@ const authRoutes = require("./auth.js");
 // URL routes
 
 
-router.use("/auth", authRoutes); 
+router.use("/auth", authRoutes);
 
 
 

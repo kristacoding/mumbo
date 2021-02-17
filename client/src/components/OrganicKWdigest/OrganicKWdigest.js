@@ -34,17 +34,17 @@ function OrganicKWdigest(props) {
 
 
     return (
-            <Card className="card shadow p-3 mb-5 bg-white rounded">
-                <Card.Header className="font-weight-bold text-secondary text-uppercase">
-                    Organic KW Postion Spread
+        <Card className="card shadow p-3 mb-5 bg-white rounded">
+            <Card.Header className="font-weight-bold text-secondary text-uppercase">
+                Organic KW Postion Spread
                 </Card.Header>
-                <Card.Body>
-                    <Pie
-                        data={chartData3}
-                        options={{ maintainAspectRatio: true }}
-                    />
-                </Card.Body>
-            </Card>
+            <Card.Body>
+                <Pie
+                    data={chartData3}
+                    options={{ maintainAspectRatio: true }}
+                />
+            </Card.Body>
+        </Card>
     )
 }
 
