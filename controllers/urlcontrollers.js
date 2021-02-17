@@ -3,8 +3,8 @@ const db = require("../models");
 // Defining methods for the urlController
 module.exports = {
   findAll: function(req, res) {
-    db.WebsiteInfo
-      .find(req.query)
+    db.User.find()
+      .populate("WebsiteInfo")
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -16,9 +16,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.WebsiteInfo
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
+    db.WebsiteInfo.create(req.body)
+      .then(({_id}) => db.User.findOneAndUpdate({}, {$push: { WebsiteInfo: _id } }, { new: true }))
+      .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
