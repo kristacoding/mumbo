@@ -55,21 +55,21 @@ router.post('/login', function (req, res) {
 
 
 //route for logging out a user
-router.get("/logout", function (req, res){
+router.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
-}); 
+});
 
 // Matches with "/api/auth"
 router.route("/")
-  .get(urlControllers.findAll)
-  .post(urlControllers.create);
+    .get(urlControllers.findAll)
+    .post(urlControllers.create);
 
 // Matches with "/api/auth/:id"
 router
-  .route("/:id")
-  .get(urlControllers.findById)
-  .put(urlControllers.update)
-  .delete(urlControllers.remove);
+    .route("/:id")
+    .get(urlControllers.findById)
+    .put(urlControllers.update)
+    .delete(urlControllers.remove);
 
 module.exports = router;

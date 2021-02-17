@@ -8,12 +8,12 @@ function Navagationbar() {
   return (
     <Navbar className="navbar navbar-expand-lg  bg-light">
       <Navbar.Brand>
-     Mumbo
+        Mumbo
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-        <li className="nav-item">
+          <li className="nav-item">
             <Link
               to="/seo-dashboard"
               className={window.location.pathname === "/seo-dashboard" ? "nav-link active" : "nav-link"}

@@ -24,7 +24,7 @@ var UserSchema = new Schema({
             ref: "WebsiteInfo"
         }
     ]
-    
+
 });
 
 UserSchema.pre('save', function (next) {

@@ -1,15 +1,15 @@
 import React from "react";
 import Container from "../Container/container"
-import Header from  "../header/header"
+import Header from "../header/header"
 import SearchBar from "../SearchBar/Searchbar";
 import TopStats from "../Topstats/TopStats";
 
 function seoDashboard() {
-    return(
+    return (
         <Container>
-        <Header />
-        <SearchBar/>
-        <TopStats />
+            <Header />
+            <SearchBar />
+            <TopStats />
         </Container>
     )
 }

@@ -49,7 +49,7 @@ class SEODashboard extends Component {
 
     clearSearch = event => {
         event.preventDefault();
-        const clear =  window.location.reload(false);
+        const clear = window.location.reload(false);
         return clear
     };
 
@@ -66,55 +66,55 @@ class SEODashboard extends Component {
         event.preventDefault();
         API.saveUrl(
             {
-            URL: this.state.search, 
-            pageSpeedScore: "Average",
-            domainRank: this.state.semresult[14],
-            organicTraffic: this.state.semresult[21], 
-            totalOrganicKW: this.state.semresult[15],
-            Top3: this.state.semresult[16],
-            Top10: this.state.semresult[17], 
-            Top20: this.state.semresult[18],
-            Top30: this.state.semresult[19], 
-            Top40: this.state.semresult[20], 
-            Orcost: this.state.semresult[21],
-            Adtraffic: this.state.semresult[24],
-            Orkw: this.state.semresult[15],
-            Adkw: this.state.semresult[23],
-            Topurl1: this.state.semresulttp[4],
-            Topurl2: this.state.semresulttp[8],
-            Topurl3: this.state.semresulttp[12],
-            Topurl4: this.state.semresulttp[16],
-            Topurl5: this.state.semresulttp[20],
-            Topurl6: this.state.semresulttp[24],
-            Topurl7: this.state.semresulttp[28],
-            Topurl8: this.state.semresulttp[32],
-            Topurl9: this.state.semresulttp[36],
-            Topurl10: this.state.semresulttp[40],
-            Topkw1: this.state.semresulttp[5],
-            Topkw2: this.state.semresulttp[9],
-            Topkw3: this.state.semresulttp[13],
-            Topkw4: this.state.semresulttp[17],
-            Topkw5: this.state.semresulttp[21],
-            Topkw6: this.state.semresulttp[25],
-            Topkw7: this.state.semresulttp[29],
-            Topkw8: this.state.semresulttp[33],
-            Topkw9: this.state.semresulttp[37],
-            Topkw10: this.state.semresulttp[41],
-            Toptraffic1: this.state.semresulttp[6],
-            Toptraffic2: this.state.semresulttp[10],
-            Toptraffic3: this.state.semresulttp[14],
-            Toptraffic4: this.state.semresulttp[18],
-            Toptraffic5: this.state.semresulttp[22],
-            Toptraffic6: this.state.semresulttp[26],
-            Toptraffic7: this.state.semresulttp[30],
-            Toptraffic8: this.state.semresulttp[34],
-            Toptraffic9: this.state.semresulttp[38],
-            Toptraffic10: this.state.semresulttp[42]
-        }
+                URL: this.state.search,
+                pageSpeedScore: "Average",
+                domainRank: this.state.semresult[14],
+                organicTraffic: this.state.semresult[21],
+                totalOrganicKW: this.state.semresult[15],
+                Top3: this.state.semresult[16],
+                Top10: this.state.semresult[17],
+                Top20: this.state.semresult[18],
+                Top30: this.state.semresult[19],
+                Top40: this.state.semresult[20],
+                Orcost: this.state.semresult[21],
+                Adtraffic: this.state.semresult[24],
+                Orkw: this.state.semresult[15],
+                Adkw: this.state.semresult[23],
+                Topurl1: this.state.semresulttp[4],
+                Topurl2: this.state.semresulttp[8],
+                Topurl3: this.state.semresulttp[12],
+                Topurl4: this.state.semresulttp[16],
+                Topurl5: this.state.semresulttp[20],
+                Topurl6: this.state.semresulttp[24],
+                Topurl7: this.state.semresulttp[28],
+                Topurl8: this.state.semresulttp[32],
+                Topurl9: this.state.semresulttp[36],
+                Topurl10: this.state.semresulttp[40],
+                Topkw1: this.state.semresulttp[5],
+                Topkw2: this.state.semresulttp[9],
+                Topkw3: this.state.semresulttp[13],
+                Topkw4: this.state.semresulttp[17],
+                Topkw5: this.state.semresulttp[21],
+                Topkw6: this.state.semresulttp[25],
+                Topkw7: this.state.semresulttp[29],
+                Topkw8: this.state.semresulttp[33],
+                Topkw9: this.state.semresulttp[37],
+                Topkw10: this.state.semresulttp[41],
+                Toptraffic1: this.state.semresulttp[6],
+                Toptraffic2: this.state.semresulttp[10],
+                Toptraffic3: this.state.semresulttp[14],
+                Toptraffic4: this.state.semresulttp[18],
+                Toptraffic5: this.state.semresulttp[22],
+                Toptraffic6: this.state.semresulttp[26],
+                Toptraffic7: this.state.semresulttp[30],
+                Toptraffic8: this.state.semresulttp[34],
+                Toptraffic9: this.state.semresulttp[38],
+                Toptraffic10: this.state.semresulttp[42]
+            }
         )
             .then(res => console.log(res))
-            const clear =  window.location.reload(false);
-            return clear
+        const clear = window.location.reload(false);
+        return clear
             .catch(err => console.log(err));
     }
     render() {
@@ -122,26 +122,26 @@ class SEODashboard extends Component {
         return (
             <div>
                 <Container>
-                    { !foundResults ?
-                    <Headerbuttonless />
-                    :
-                    <Header Sitename={this.state.semresult[13]} 
-                    clearSearch={this.clearSearch}
-                    saveSearch={this.saveSearch}/>
+                    {!foundResults ?
+                        <Headerbuttonless />
+                        :
+                        <Header Sitename={this.state.semresult[13]}
+                            clearSearch={this.clearSearch}
+                            saveSearch={this.saveSearch} />
                     }
                     {!foundResults ?
                         <>
-                             <SearchBar
-                        value={this.state.search}
-                        handleInputChange={this.handleInputChange}
-                        handleFormSubmit={this.handleFormSubmit}
-                        clearSearch={this.clearSearch}
-                        saveSearch={this.saveSearch}
-                    />
+                            <SearchBar
+                                value={this.state.search}
+                                handleInputChange={this.handleInputChange}
+                                handleFormSubmit={this.handleFormSubmit}
+                                clearSearch={this.clearSearch}
+                                saveSearch={this.saveSearch}
+                            />
                             <Row className="justify-content-center">
                                 <h5>Search for a site!</h5>
                             </Row>
-                     </>
+                        </>
                         :
                         <>
                             <TopStats
