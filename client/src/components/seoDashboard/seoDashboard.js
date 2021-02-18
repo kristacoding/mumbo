@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../Container/container"
 import Header from "../header/header"
 import SearchBar from "../SearchBar/Searchbar";
-import TopStats from "../Topstats/TopStats";
+import TopStats from "../topStats/TopStats";
 
 function seoDashboard() {
     return (
