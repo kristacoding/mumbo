@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+## SEO Mumbo - Organize all Your SEO Mumbo Jumbo 
+This application allows for advance SEO Specialists to manage multiple website in one easy to spot location. Using different npm installs, API routes and a mongoose database, we are able to host all important SEO information on this application. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Links
+<p>Deployed Application: https://seo-mumbo.herokuapp.com/</p>
+<p>QRCode: <img src="Images/QrCode.png"></p>
+<p>Video: </p>
 
-## Available Scripts
+## Technologoies 
+<ul>
+    <li>Bootstrap</li>
+    <li>React</li>
+    <li>React Router</li>
+    <li>Charts.JS</li>
+    <li>Tabulator</li>
+    <li>Axios</li>
+</ul>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The SEO Mumbo application was created to make organizing multiple websites for SEO Specialists more efficient but providing a high overview of all saved URLs in one location. Using the SEMrush and Google Page Speed API, the application calls detailed information such as Page Speed Score, Domain Authority, Organic Traffic and Total Organic Keywords. After making the inital call, SEO Specialist are able to save the information to a database, and refer back to it as needed just by simply logging in. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+SEO Mumbo starts by requiring that you create a login with an email and password to ensure that the following information is secure. Although, you will be able to access the SEO Dashboard without a login, you will not be able to save any information. The login and register pages were created using passport and JWTokens. After loginning in, your information is then saved to a database were we have used JwtToken to track and save your login information. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Once you login, we recommend heading to the SEO Dashboard to enter your first website. On the dashboard, all information appended until you click the search button. Once you enter your website containing the 'http://' or 'https://' then you will be able to see the following SEO data pulled form the Google Page Speed API (which takes awhile) and the SEMRush API. We also used charts.JS and Tabulator to create a user friendly experience. 
 
-### `npm test`
+After you have reviewed all the SEO data from the third party API calls, you are able to save that information to the database. We did this by creating an object that holds all the data, then saving it to the Mongoose database. Once in the Mongoose database, it is then pull through a get request and passed through all the same elements on the dashboard, but this time without calling the third party APIs. We have also implemented a delete route, so you can remove your the URL data that you are no longer working on. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Images
+Login page 
+<img src= >
