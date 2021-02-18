@@ -4,21 +4,27 @@ const LocalStrategy = require("passport-local").Strategy;
 const db = require("../models");
 
 passport.use(new LocalStrategy(
-  { usernameField: "username" },
+  { 
+    usernameField: "username" 
+  },
   // This function handles a user trying to log in
   function(username, password, done) {
-    db.User.findOne({ username: username }, function(err, user) {
-      // If there's an error
-      if (err) return done(err);
+    db.User.findOne({ where:{
+      username: username
+    }
+     }).then(function(dbUser) {
+      if (!dbUser) {
+        return done(null, false, {
+          message: "Incorrect email."
+        });
+      }
+      else if (!dbUser.validPassword(password)) {
+        return done(null, false, {
+          message: "Incorrect password."
+        });
+      }
 
-      // If the user doesn't exist
-      if (!user) return done(null, false, { message: "No user exists with that username." });
-
-      // If the password doesn't match
-      if (!user.validPassword(password))  return done(null, false, { message: "Incorrect password." });
-
-      // Otherwise, return the user and signal to let them log in
-      return done(null, user);
+      return done(null, dbUser);
     });
   }
 ));
