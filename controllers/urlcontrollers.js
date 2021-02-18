@@ -1,9 +1,13 @@
+const { ExtractJwt } = require("passport-jwt");
 const db = require("../models");
+
+
+
 
 // Defining methods for the urlController
 module.exports = {
   findAll: function (req, res) {
-    db.User.find()
+    db.User.find(req.user)
       .populate("WebsiteInfo")
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
@@ -33,5 +37,7 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+
+
 };
