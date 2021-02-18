@@ -1,5 +1,5 @@
 ## SEO Mumbo - Organize all Your SEO Mumbo Jumbo 
-This application allows for advanced SEO Specialists to manage multiple websites in one easy-to-spot location. Using different npm installs, API routes, and a mongoose database, we are able to host all-important SEO information on this application. 
+This application allows for advanced SEO Specialists to manage multiple websites in one easy-to-use location. Using different npm installs, API routes, and a mongoose database, we are able to host all-important SEO information on this application. 
  
 ## Links
 <p>Deployed Application: https://seo-mumbo.herokuapp.com/</p>
@@ -14,6 +14,10 @@ This application allows for advanced SEO Specialists to manage multiple websites
     <li>Charts.JS</li>
     <li>Tabulator</li>
     <li>Axios</li>
+    <li>Mongo Database</li>
+    <li>Mongoose</li>
+    <li>Passport</li>
+    <li>Express</li>
 </ul>
  
 ## Description
