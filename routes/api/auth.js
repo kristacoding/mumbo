@@ -6,7 +6,9 @@ var jwt = require('jsonwebtoken');
 var router = express.Router();
 var User = require("../../models/user");
 var urlControllers = require("../../controllers/urlcontrollers");
-require('crypto').randomBytes(64).toString('hex')
+require('crypto').randomBytes(64).toString('hex');
+
+var userToken; 
 
 
 router.post('/register', function (req, res) {
@@ -44,20 +46,18 @@ router.post('/login', function (req, res) {
                 if (isMatch && !err) {
                     // if user is found and password is right create a token
                     var token = jwt.sign(user.toJSON(), settings.secret);
+                    // return the information including token as JSON
+                    console.log(token); 
+                    userToken = token; 
+                    res.json({ success: true, token: 'JWT ' + token });
 
-                    if (token == null) return res.sendStatus(401);
-                    else (jwt.verify(token, (process.env.ACCESS_TOKEN_SECRET), (err, user) => {
-                        console.log(err)
-                        if (err) return res.sendStatus(403);
-                        req.user = user;
-                        // return the information including token as JSON
-                        res.json({ success: true, token: 'JWT ' + token });
-                    )
-            }
-            
+                } else {
+                    res.status(401).send({ success: false, msg: 'Authentication failed. Wrong password.' });
+                }
+            });
+        }
     });
 });
-
 
 //route for logging out a user
 router.get("/logout", function (req, res) {
@@ -74,12 +74,13 @@ dotenv.config();
 process.env.TOKEN_SECRET;
 
 function authenticateToken(req, res, next) {
+    console.log(req);
     // Gather the jwt access token from the request header
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.sendStatus(401) // if there isn't any token
+    if (userToken == null) return res.sendStatus(401) // if there isn't any token
 
-    jwt.verify(token, (process.env.ACCESS_TOKEN_SECRET), (err, user) => {
+    jwt.verify(userToken, (process.env.ACCESS_TOKEN_SECRET), (err, user) => {
         console.log(err)
         if (err) return res.sendStatus(403);
         req.user = user;
@@ -92,7 +93,7 @@ function authenticateToken(req, res, next) {
 // Matches with "/api/auth"
 router.route("/")
     .get(authenticateToken, urlControllers.findAll)
-    .post(urlControllers.create);
+    .post(authenticateToken,urlControllers.create);
 
 // Matches with "/api/auth/:id"
 router
