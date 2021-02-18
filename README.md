@@ -3,8 +3,8 @@ This application allows for advance SEO Specialists to manage multiple website i
 
 ## Links
 <p>Deployed Application: https://seo-mumbo.herokuapp.com/</p>
-<p>QRCode: <img src="Images/QrCode.png"></p>
-<p>Video: </p>
+<p>QRCode: <img src="images/QrCode.png"></p>
+<p>Video: https://drive.google.com/file/d/1F94uR24BYYXqXJHtDNkmp_9w0zyZrli7/view </p>
 
 ## Technologoies 
 <ul>
@@ -24,8 +24,24 @@ SEO Mumbo starts by requiring that you create a login with an email and password
 
 Once you login, we recommend heading to the SEO Dashboard to enter your first website. On the dashboard, all information appended until you click the search button. Once you enter your website containing the 'http://' or 'https://' then you will be able to see the following SEO data pulled form the Google Page Speed API (which takes awhile) and the SEMRush API. We also used charts.JS and Tabulator to create a user friendly experience. 
 
-After you have reviewed all the SEO data from the third party API calls, you are able to save that information to the database. We did this by creating an object that holds all the data, then saving it to the Mongoose database. Once in the Mongoose database, it is then pull through a get request and passed through all the same elements on the dashboard, but this time without calling the third party APIs. We have also implemented a delete route, so you can remove your the URL data that you are no longer working on. 
+After you have reviewed all the SEO data from the third party API calls, you are able to save that information to the database. We did this by creating an object that holds all the data, then saving it to the Mongoose database. Once in the Mongoose database, it is then pull through a get request and passed through all the same elements on the dashboard, but this time without calling the third party APIs. We have also implemented a delete route, so you can remove your the URL data that you are no longer working on.
+
+## License
+This application is licensed under the MIT License.
+
+## Questions
+If you have any questions, please reach out to: 
+<p>Jesse Larsen - larsenj732@gmail.com</p>
+<p>Krista Meiers - krista.coding@gmail.com</p>
+
 
 ## Images
 Login page 
-<img src= >
+<p><img src="images/mumbologin.png" ></p>
+
+SEO Dashboard
+<p><img src="images/seodashboard.png" ></p>
+
+Saved Searches
+<p><img src="images/savedsearches.png" ></p>
+
