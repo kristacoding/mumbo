@@ -1,9 +1,11 @@
-const express = require("express");
+const express = require('express');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport = require('./config/passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const routes = require("./routes");
-const mongoose = require("mongoose");
-const passport = require("./config/passport");
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -34,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //Set up API Routes
-app.use('/', routes);
+app.use(require('./routes/index'));
 
 
 app.listen(PORT, function () {

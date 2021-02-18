@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the urlController
 module.exports = {
   findAll: function (req, res) {
-    db.User.findById(req.param.id)
+    db.User.findById(req.params.id)
       .populate("WebsiteInfo")
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
