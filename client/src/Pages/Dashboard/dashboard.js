@@ -5,7 +5,7 @@ import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/header/header"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import TopStats from "../../components/TopStats/TopStats";
+import TopStats from "../../components/topStats/TopStats";
 import TableUrls from "../../components/Toppages/Toppages";
 import Headerbuttonless from "../../components/Headerbuttonless/Headerbuttonless";
 import { Col, Row } from "react-bootstrap";
