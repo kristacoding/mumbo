@@ -5,7 +5,7 @@ import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/header/header"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import TopStats from "../../components/topStats/TopStats";
+import TopStats from "../../components/topStats/topStats";
 import TableUrls from "../../components/Toppages/Toppages";
 import Headerbuttonless from "../../components/Headerbuttonless/Headerbuttonless";
 import { Col, Row } from "react-bootstrap";
@@ -67,7 +67,7 @@ class SEODashboard extends Component {
         API.saveUrl(
             {
                 URL: this.state.search,
-                pageSpeedScore: "Average",
+                pageSpeedScore: this.state.result.loadingExperience,
                 domainRank: this.state.semresult[14],
                 organicTraffic: this.state.semresult[21],
                 totalOrganicKW: this.state.semresult[15],
@@ -113,8 +113,8 @@ class SEODashboard extends Component {
             }
         )
             .then(res => console.log(res))
-        const clear = window.location.reload(false);
-        return clear
+        //const clear = window.location.reload(false);
+        //return clear
             .catch(err => console.log(err));
     }
     render() {

@@ -1,8 +1,8 @@
 function logout() {
 
     logout = () => {
-        localStorage.removeItem('jwtToken');
-        window.location.reload();
+        req.logout();
+        res.redirect("/");
     }
 
     return (

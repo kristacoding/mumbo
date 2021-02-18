@@ -22,7 +22,6 @@ function App() {
         <Route exact path="/mumbo" component={Login} />
         <Route exact path="/seo-dashboard" component={SEODashboard} />
         <Route exact path={["/profile", "/profile/:id"]} component={Profile} />
-        <Route exact path="/logout" component={Logout} />
       </Container>
     </Router>
   );

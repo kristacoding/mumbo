@@ -19,12 +19,12 @@ router
     .post(passport.authenticate("local"), 
     (req, res) => res.json(req.user));
 
-router
-    .route("/logout")
-    .post((req,res) => {
-        req.logout();
-        res.json({});
-    });
+router.get("/logout", function(req, res, next) {
+    req.logout();
+    res.redirect("/");
+    req.session = null
+    alert("logged out")
+  });
 
 
 // router.post('/register', function (req, res) {

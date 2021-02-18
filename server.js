@@ -31,7 +31,12 @@ mongoose.connect(
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(session({ secret: 'pineapples' }));
+app.use(session({ 
+  resave:false,
+  saveUninitialized: false,
+  secret: 'pineapples',
+  cookie: { secure: false }
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

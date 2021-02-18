@@ -23,7 +23,7 @@ class Create extends Component {
 
     const { username, password } = this.state;
 
-    axios.post('/api/auth/register', { username, password })
+    axios.post('api/auth/register', { username, password })
       .then((result) => {
         this.props.history.push("/seo-dashboard")
       });

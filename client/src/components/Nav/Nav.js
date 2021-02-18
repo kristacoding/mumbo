@@ -40,8 +40,7 @@ function Navagationbar() {
           <li className="nav-item">
             <Link
               to="/logout"
-              className={window.location.pathname === "/form" ? "nav-link active" : "nav-link"}
-              onClick={localStorage.removeItem('jwtToken')}
+              className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}
             >
               Logout
             </Link>
