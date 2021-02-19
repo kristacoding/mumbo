@@ -37,7 +37,7 @@ router.post('/login', function (req, res) {
         username: req.body.username
     }, function (err, user) {
         if (err) throw err;
-
+    
         if (!user) {
             res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
         } else {
@@ -50,13 +50,14 @@ router.post('/login', function (req, res) {
                     console.log(token); 
                     userToken = token; 
                     res.json({ success: true, token: 'JWT ' + token });
-
+    
                 } else {
                     res.status(401).send({ success: false, msg: 'Authentication failed. Wrong password.' });
                 }
             });
         }
     });
+
 });
 
 //route for logging out a user
@@ -65,35 +66,35 @@ router.get("/logout", function (req, res) {
     res.redirect("/");
 });
 
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 
-// get config vars
-dotenv.config();
+// // get config vars
+// dotenv.config();
 
-// access config var
-process.env.TOKEN_SECRET;
+// // access config var
+// process.env.TOKEN_SECRET;
 
-function authenticateToken(req, res, next) {
-    console.log(req);
-    // Gather the jwt access token from the request header
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-    if (userToken == null) return res.sendStatus(401) // if there isn't any token
+// function authenticateToken(req, res, next) {
+//     console.log(req);
+//     // Gather the jwt access token from the request header
+//     const authHeader = req.headers['authorization']
+//     const token = authHeader && authHeader.split(' ')[1]
+//     if (userToken == null) return res.sendStatus(401) // if there isn't any token
 
-    jwt.verify(userToken, (process.env.ACCESS_TOKEN_SECRET), (err, user) => {
-        console.log(err)
-        if (err) return res.sendStatus(403);
-        req.user = user;
+//     jwt.verify(userToken, (process.env.ACCESS_TOKEN_SECRET), (err, user) => {
+//         console.log(err)
+//         if (err) return res.sendStatus(403);
+//         req.user = user;
 
-        next() // pass the execution off to whatever request the client intended
+//         next() // pass the execution off to whatever request the client intended
 
-    })
-}
+//     })
+// }
 
 // Matches with "/api/auth"
 router.route("/")
-    .get(authenticateToken, urlControllers.findAll)
-    .post(authenticateToken,urlControllers.create);
+    .get(passport.authenticate("jwt",{session: false}), urlControllers.findAll)
+    .post(urlControllers.create);
 
 // Matches with "/api/auth/:id"
 router

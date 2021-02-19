@@ -14,7 +14,11 @@ const api = {
     },
     // Gets all url
     getUrls: function () {
-        return axios.get("api/auth");
+        return axios.get("api/auth", {
+            headers: {
+                Authorization: localStorage.getItem("jwtToken")
+            }
+        });
     },
     // Gets the url with the given id
     getUrl: function (id) {
