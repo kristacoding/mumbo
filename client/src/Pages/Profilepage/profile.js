@@ -7,16 +7,18 @@ import API from "../../Utils/API"
 import Profileblock from "../../components/Profileblock/profile"
 import Profilechartdigest from "../../components/Profilechartdigest/Profilechartdigest"
 import TableUrls from "../../components/Toppages/Toppages";
+import axios from "axios";
 
 class Profile extends Component {
     state = {
         urls: []
     };
     componentDidMount() {
+            axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         console.log("test")
         this.getSavedURLs();
     }
-    getSavedURLs = () => {
+    getSavedURLs = (req, res) => {
         API.getUrls()
             .then(res => {
                 this.setState({

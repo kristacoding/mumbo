@@ -8,28 +8,23 @@ var User = require("../../models/user");
 var urlControllers = require("../../controllers/urlcontrollers");
 require('crypto').randomBytes(64).toString('hex');
 
-var userToken; 
-
-
-router.post('/register', function (req, res) {
-    console.log(req.body)
+router.post('/register', function(req, res) {
     if (!req.body.username || !req.body.password) {
-        res.json({ success: false, msg: 'Please pass username and password.' });
+      res.json({success: false, msg: 'Please pass username and password.'});
     } else {
-        var newUser = new User({
-            username: req.body.username,
-            password: req.body.password
-        });
-        // save the user
-        newUser.save(function (err) {
-            if (err) {
-                console.log(err)
-                return res.json({ success: false, msg: 'Username already exists.' });
-            }
-            res.json({ success: true, msg: 'Successful created new user.' });
-        });
+      var newUser = new User({
+        username: req.body.username,
+        password: req.body.password
+      });
+      // save the user
+      newUser.save(function(err) {
+        if (err) {
+          return res.json({success: false, msg: 'Username already exists.'});
+        }
+        res.json({success: true, msg: 'Successful created new user.'});
+      });
     }
-});
+  });
 
 router.post('/login', function (req, res) {
     console.log(req.body.username)
@@ -94,7 +89,7 @@ router.get("/logout", function (req, res) {
 // Matches with "/api/auth"
 router.route("/")
     .get(passport.authenticate("jwt",{session: false}), urlControllers.findAll)
-    .post(urlControllers.create);
+    .post(passport.authenticate("jwt",{session: false}), urlControllers.create);
 
 // Matches with "/api/auth/:id"
 router
