@@ -20,7 +20,7 @@ class SEODashboard extends Component {
     };
     componentDidMount() {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
-      };
+    };
     searchURL = (query) => {
         API.getPageSpeed(query)
             .then(res => {
@@ -52,8 +52,12 @@ class SEODashboard extends Component {
 
     clearSearch = event => {
         event.preventDefault();
-        //const clear = window.location.reload(false);
-        //return clear
+        this.setState({
+            search: "",
+            result: [],
+            semresult: [],
+            semresulttp: []
+        })
     };
 
     handleInputChange = event => {
@@ -67,6 +71,13 @@ class SEODashboard extends Component {
 
     saveSearch = event => {
         event.preventDefault();
+        this.setState({
+            search: "",
+            result: [],
+            semresult: [],
+            semresulttp: []
+        })
+        alert("Saved!")
         API.saveUrl(
             {
                 URL: this.state.search,
