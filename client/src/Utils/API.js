@@ -14,20 +14,36 @@ const api = {
     },
     // Gets all url
     getUrls: function () {
-        return axios.get("api/auth");
+        return axios.get("api/auth", {
+            headers: {
+                Authorization: localStorage.getItem("jwtToken")
+            }
+        });
     },
     // Gets the url with the given id
     getUrl: function (id) {
-        return axios.get("/api/auth/" + id);
+        return axios.get("/api/auth/" + id, {
+            headers: {
+                Authorization: localStorage.getItem("jwtToken")
+            }
+        });
     },
     // Deletes the url with the given id
     deleteUrl: function (id) {
-        return axios.delete("/api/auth/" + id);
+        return axios.delete("/api/auth/" + id, {
+            headers: {
+                Authorization: localStorage.getItem("jwtToken")
+            }
+        });
     },
     // Saves a url to the database
     saveUrl: function (urlData) {
         console.log(urlData)
-        return axios.post("/api/auth", urlData);
+        return axios.post("/api/auth", urlData, {
+            headers: {
+                Authorization: localStorage.getItem("jwtToken")
+            }
+        });
 
     }
 };

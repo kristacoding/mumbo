@@ -3,12 +3,13 @@ import Container from "../../components/Container/container"
 import API from "../../Utils/API";
 import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
-import Header from "../../components/header/header"
+import Header from "../../components/Header/header"
 import SearchBar from "../../components/SearchBar/SearchBar"
 import TopStats from "../../components/topStats/TopStats";
 import TableUrls from "../../components/Toppages/Toppages";
 import Headerbuttonless from "../../components/Headerbuttonless/Headerbuttonless";
 import { Col, Row } from "react-bootstrap";
+import axios from "axios";
 
 class SEODashboard extends Component {
     state = {
@@ -17,7 +18,9 @@ class SEODashboard extends Component {
         semresult: [],
         semresulttp: []
     };
-
+    componentDidMount() {
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+    };
     searchURL = (query) => {
         API.getPageSpeed(query)
             .then(res => {
@@ -49,8 +52,12 @@ class SEODashboard extends Component {
 
     clearSearch = event => {
         event.preventDefault();
-        const clear = window.location.reload(false);
-        return clear
+        this.setState({
+            search: "",
+            result: [],
+            semresult: [],
+            semresulttp: []
+        })
     };
 
     handleInputChange = event => {
@@ -64,6 +71,13 @@ class SEODashboard extends Component {
 
     saveSearch = event => {
         event.preventDefault();
+        this.setState({
+            search: "",
+            result: [],
+            semresult: [],
+            semresulttp: []
+        })
+        alert("Saved!")
         API.saveUrl(
             {
                 URL: this.state.search,
@@ -113,8 +127,6 @@ class SEODashboard extends Component {
             }
         )
             .then(res => console.log(res))
-        const clear = window.location.reload(false);
-        return clear
             .catch(err => console.log(err));
     }
     render() {

@@ -17,7 +17,7 @@ class Create extends Component {
     state[e.target.name] = e.target.value;
     this.setState(state);
   }
-
+  
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -25,7 +25,7 @@ class Create extends Component {
 
     axios.post('/api/auth/register', { username, password })
       .then((result) => {
-        this.props.history.push("/seo-dashboard")
+        this.props.history.push("/login")
       });
   }
 
