@@ -33,7 +33,7 @@ class Login extends Component {
         localStorage.setItem('jwtToken', result.data.token);
         console.log(result.data);
         this.setState({ message: '' });
-        this.props.history.push('/profile')
+        this.props.history.push('/seo-dashboard')
       })
       .catch((error) => {
         if (error.response.status === 401) {
