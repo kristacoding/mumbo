@@ -14,7 +14,7 @@ class Profile extends Component {
         urls: []
     };
     componentDidMount() {
-            axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         console.log("test")
         this.getSavedURLs();
     }
