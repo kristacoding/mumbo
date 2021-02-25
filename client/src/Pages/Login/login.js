@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Col, Row, Button } from "react-bootstrap";
-import Container from "../../components/Container/container";
+import { Button, Form, Container } from "react-bootstrap";
 import './style.css';
 
 class Login extends Component {
@@ -47,10 +46,10 @@ class Login extends Component {
     return (
       <>
 
-        <div className="container">
-          <form class="form-signin" onSubmit={this.onSubmit}>
+        <Container>
+          <Form className="form-signin" onSubmit={this.onSubmit}>
             {message !== '' &&
-              <div class="alert alert-warning alert-dismissible" role="alert">
+              <div className="alert alert-warning alert-dismissible" role="alert">
                 {message}
               </div>
             }
@@ -59,15 +58,15 @@ class Login extends Component {
             <input type="email" className="form-control" placeholder="Email address" name="username" value={username} onChange={this.onChange} required />
             <label for="inputPassword" className="sr-only">Password</label>
             <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={this.onChange} required />
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <Button className="btn btn-lg btn-primary btn-block" type="submit">Login</Button>
             <p>
               Not a member? <Link to="/register"
                 className={window.location.pathname === "/register"}
               >
                 <span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Register here</Link>
             </p>
-          </form>
-        </div>
+          </Form>
+        </Container>
       </>
     );
   }

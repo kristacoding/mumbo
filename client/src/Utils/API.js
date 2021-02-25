@@ -13,8 +13,8 @@ const api = {
         return axios.get("https://cors-everywhere-jrl.herokuapp.com/https://api.semrush.com/?type=domain_organic_unique&key=" + process.env.REACT_APP_PASSKEY + "&display_filter=%2B%7CPc%7CGt%7C100&display_limit=10&export_columns=Ur,Pc,Tg,Tr&domain=" + URL + "&display_sort=tr_desc&database=us");
     },
     // Gets all url
-    getUrls: function () {
-        return axios.get("api/auth", {
+    getUrls: function (id) {
+        return axios.get("api/auth/",  id, {
             headers: {
                 Authorization: localStorage.getItem("jwtToken")
             }
@@ -37,9 +37,9 @@ const api = {
         });
     },
     // Saves a url to the database
-    saveUrl: function (urlData) {
+    saveUrl: function (urlData, id) {
         console.log(urlData)
-        return axios.post("/api/auth", urlData, {
+        return axios.post("/api/auth", urlData, + id, {
             headers: {
                 Authorization: localStorage.getItem("jwtToken")
             }

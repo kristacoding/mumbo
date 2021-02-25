@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import axios from 'axios';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Navagationbar() {
@@ -42,7 +41,7 @@ function Navagationbar() {
           </li>
           <li className="nav-item">
             <Link
-              to="/log"
+              to="/login"
               className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
               onClick={handleClick}
             >

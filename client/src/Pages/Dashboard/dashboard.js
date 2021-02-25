@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Container from "../../components/Container/container"
-import API from "../../Utils/API";
+import API from "../../utils/API";
 import Chartdigest from "../../components/Chartdigest/Chartdigest";
 import OrganicKWdigest from "../../components/OrganicKWdigest/OrganicKWdigest"
 import Header from "../../components/Header/header"
