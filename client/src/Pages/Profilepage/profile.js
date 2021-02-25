@@ -3,7 +3,7 @@ import Container from "../../components/Container/container";
 import Profileheader from "../../components/Profileheader/Profileheader";
 import { List } from "../../components/List/List";
 import { Col, Row, Button } from "react-bootstrap";
-import API from "../../Utils/API"
+import API from "../../utils/API"
 import Profileblock from "../../components/Profileblock/profile"
 import Profilechartdigest from "../../components/Profilechartdigest/Profilechartdigest"
 import TableUrls from "../../components/Toppages/Toppages";
@@ -14,7 +14,7 @@ class Profile extends Component {
         urls: []
     };
     componentDidMount() {
-            axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken');
         console.log("test")
         this.getSavedURLs();
     }

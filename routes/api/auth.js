@@ -56,9 +56,9 @@ router.post('/login', function (req, res) {
 });
 
 //route for logging out a user
-router.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
+router.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
 });
 
 // const dotenv = require("dotenv");
